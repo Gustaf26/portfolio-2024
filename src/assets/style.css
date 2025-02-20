@@ -272,7 +272,13 @@ input:checked+.slider:before {
 
     }
 
+    & .about h3,
+    .about h2 {
+        margin-bottom: 0px 0 10px 10px;
+    }
+
     & .about p {
+        padding: 10px;
         line-height: 1.6;
     }
 
@@ -327,10 +333,10 @@ input:checked+.slider:before {
         border: 1px solid rgb(78, 102, 109);
         background-color: white;
         color: rgb(78, 102, 109);
+        border-radius: 3px;
 
         &:hover {
-            background-color: rgb(78, 102, 109);
-            color: white;
+            background-color: rgba(78, 102, 109, 0.2);
         }
     }
 
@@ -352,16 +358,7 @@ input:checked+.slider:before {
         color: white;
         text-transform: uppercase;
         padding: 5px;
-    }
 
-    & .more-link {
-        color: rgb(13, 91, 237);
-        font-weight: 400;
-        text-align: left;
-
-        &:hover {
-            color: blue;
-        }
     }
 
     & .less-featured {
@@ -403,18 +400,6 @@ input:checked+.slider:before {
                 & a {
                     width: 100%;
                 }
-            }
-        }
-
-        & a.more-link {
-            width: 100%;
-            text-align: center;
-            color: rgb(78, 102, 109) !important;
-
-            & img {
-                width: 12px;
-                height: 12px;
-                display: none;
             }
         }
     }
@@ -478,13 +463,21 @@ input:checked+.slider:before {
 }
 
 a.more-link {
-    width: 100%;
+    display: inline-block;
     text-align: center;
-    color: lightblue;
+    width: 50% !important;
+    padding: 10px 0;
+    border: 1px solid rgb(78, 102, 109) !important;
+    text-align: center;
+    color: rgb(78, 102, 109) !important;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: rgba(78, 102, 109, 0.1);
+        /* color: white !important; */
+    }
 
     & img {
-        width: 12px;
-        height: 12px;
         display: none;
     }
 }
@@ -622,6 +615,8 @@ section {
             width: 20px;
             height: auto;
             margin: 3px 3px;
+            padding: 4px;
+            border-radius: 5px;
             animation: blink 2s infinite !important;
         }
     }
@@ -692,11 +687,14 @@ section {
 
 @keyframes blink {
     0% {
-        transform: scale(1.2)
+        transform: scale(1.2);
+        background-color: black;
     }
 
     100% {
-        transform: scale(0.8)
+        transform: scale(0.8);
+        padding: 0;
+        filter: invert(70%)
     }
 }
 
