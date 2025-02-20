@@ -35,9 +35,8 @@ function Header() {
                         <span>Dark Mode</span>
                     </div>
                 </div>
-                <a href="mailto: gcs26@yahoo.com" target=""><img src={plane} />
-                    CONTACT
-                    ME</a>
+                <a href="mailto: gcs26@yahoo.com" target="">
+                    CONTACT</a>
             </div>
         </div>
     </header>)

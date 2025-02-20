@@ -18,11 +18,11 @@ function BasicInfo() {
         transform: CSS.Translate.toString(transform),
     };
 
-    const basicInfo = [<li key={0}><img style={{ width: '14px', height: '14px', marginRight: '20px' }} src={locationimg} /><span className="sr-only">Location:</span>
+    const basicInfo = [<li key={0}><img style={{ width: '14px', height: '14px', marginRight: '20px' }} src={locationimg} /><span className="sr-only">Location: </span>
         Malmö, SWE</li>,
-    <li key={1}><img style={{ width: '14px', height: '14px', marginRight: '20px' }} src={emailImg} /><span className="sr-only">Email:</span><a
+    <li key={1}><img style={{ width: '14px', height: '14px', marginRight: '20px' }} src={emailImg} /><span className="sr-only">Email: </span><a
         href="#">gcs26@yahoo.com</a></li>,
-    <li key={2}><img style={{ width: '14px', height: '14px', marginRight: '20px' }} src={linkimg} /><span className="sr-only">Website:</span><a
+    <li key={2}><img style={{ width: '14px', height: '14px', marginRight: '20px' }} src={linkimg} /><span className="sr-only">Website: </span><a
         href="#">https://catala-sverdrup.se</a></li>]
 
     return (<aside style={style} {...listeners} {...attributes} className="pers-info aside section">

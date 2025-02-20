@@ -93,11 +93,11 @@ const App = () => {
           newIndexes.splice(draggableFinalIndex, 0, ind)
         }
         else if (ind + 5 === secondActiveId && event.active.data.current.supports === 'type4') {
-          alert(secondActiveId + ' ' + ind)
+
 
           newIndexes.splice(i, 1)
           draggableFinalIndex = diff > 900 ? i : diff > 600 ? i - 1 : diff > 500 ? i - 2 : diff > 400 ? i - 3 : i - 4
-          alert(draggableFinalIndex + ' ' + ind)
+
           newIndexes.splice(draggableFinalIndex, 0, ind)
         }
       })
@@ -106,7 +106,7 @@ const App = () => {
         setIndexes(newIndexes)
       }
       else {
-        alert(newIndexes)
+
         setSecondIndexes(newIndexes)
       }
     }

@@ -68,8 +68,8 @@ function Latest() {
                     <p>Being this my examination project, it never saw the light of being actually used by retailers.
                         But the page was finnished with that purpose, even if it needs a better design</p>
                 </div>
-                <a className="btn" href="https://min-butik.catala-sverdrup.se"
-                    target=""><img src={like} />Check</a>
+                <a className="btn" href="https://e-commerce.catala-sverdrup.se"
+                    target="">VIEW</a>
             </div>
             <hr />
             <div className="secondary">

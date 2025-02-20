@@ -58,8 +58,9 @@ function Skills() {
                         return (
                             <div key={skill.name} className="item">
                                 <h3 className="level-title">{skill.name}</h3>
-                                <div className="level-bar progress" style={{ zIndex: 10 }}>
-                                    <span className="progress-bar-value" ref={skillRefs[i]} style={{ backgroundColor: "lightgreen", width: skill.level + "%", borderRadius: '20px' }} id={skill.name}></span>
+                                <div className="level-bar progress" style={{ zIndex: 10, height: '7px' }}>
+                                    <span className="progress-bar-value" ref={skillRefs[i]}
+                                        style={{ backgroundColor: i === 0 ? 'lightblue' : "rgb(78, 102, 109)", width: skill.level + "%", borderRadius: '20px', height: '7px' }} id={skill.name}></span>
                                 </div>
                             </div>)
                     })}
