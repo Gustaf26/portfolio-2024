@@ -1,12 +1,15 @@
 
+import './assets/style.css'
+
+import { useEffect, useState, useRef } from 'react';
+
 import { DndContext } from '@dnd-kit/core'
 import {
   restrictToHorizontalAxis
 } from '@dnd-kit/modifiers';
 
-import './assets/style.css'
+import StyleContext from './contexts/StyleContext';
 
-import { useEffect, useState, useRef } from 'react';
 import ContainerOne from './components/ContainerOne'
 import ContainerTwo from './components/ContainerTwo'
 import About from './components/About';
@@ -23,6 +26,7 @@ import Footer from './Footer';
 
 
 const App = () => {
+  const [shadowSection, setShadowSection] = useState('')
   const [indexes, setIndexes] = useState([0, 1, 2])
   const [secondIndexes, setSecondIndexes] = useState([0, 1, 2, 3, 4])
   const [containerIndexes, setContainerIndexes] = useState([0, 1])
@@ -161,20 +165,22 @@ const App = () => {
 
   return (
     <>
-      <Header />
-      <div className="main-container sections-wrapper">
-        <div className="row" >
-          <DndContext modifiers={[restrictToHorizontalAxis]} onDragStart={handleContainerDragStart} onDragEnd={handleContainerDragEnd}>
-            {containerIndexes && containerItems && containerIndexes.map(ind => {
+      <StyleContext.Provider value={{ shadowSection, setShadowSection }}>
+        <Header />
+        <div className="main-container sections-wrapper">
+          <div className="row" >
+            <DndContext modifiers={[restrictToHorizontalAxis]} onDragStart={handleContainerDragStart} onDragEnd={handleContainerDragEnd}>
+              {containerIndexes && containerItems && containerIndexes.map(ind => {
 
-              return containerItems[ind]
-            }
-            )}
+                return containerItems[ind]
+              }
+              )}
 
-          </DndContext>
-        </div >
-      </div>
-      < Footer />
+            </DndContext>
+          </div >
+        </div>
+        < Footer />
+      </StyleContext.Provider>
     </>
   )
 }

@@ -25,13 +25,15 @@ const ContainerOne = ({ containerIndexes, items, containerActiveId, handleDragSt
             if (containerActiveId?.current === 1) {
                 setStyle({
                     transform: CSS.Translate.toString(transform),
-                    zIndex: 3000
+                    zIndex: 3000,
+                    backgroundColor: 'white'
                 })
             }
             else {
                 setStyle({
                     transform: CSS.Translate.toString(transform),
-                    zIndex: 0
+                    zIndex: 0,
+                    backgroundColor: 'rgb(255,255,255)'
                 })
             }
         }

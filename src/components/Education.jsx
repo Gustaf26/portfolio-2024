@@ -1,7 +1,14 @@
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities';
 
+import StyleContext from '../contexts/StyleContext';
+
+import { useContext } from 'react';
+
 function Education() {
+
+
+    const { shadowSection, setShadowSection } = useContext(StyleContext)
 
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: 8,
@@ -14,7 +21,8 @@ function Education() {
         transform: CSS.Translate.toString(transform),
     };
 
-    return (<aside style={style} ref={setNodeRef} className="education aside section">
+    return (<aside onMouseOver={() => setShadowSection(6)} onMouseOut={() => setShadowSection('')}
+        style={style} ref={setNodeRef} className={shadowSection === 6 ? "education aside shadow-lg section" : "education aside shadow-sm section"}>
         <div {...listeners} {...attributes} className="section-inner">
             <h2 className="heading">Education</h2>
             <div className="content">

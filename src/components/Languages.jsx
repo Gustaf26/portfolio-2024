@@ -2,8 +2,12 @@ import starimg from '../assets/images/star.png'
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities';
 
+import StyleContext from '../contexts/StyleContext';
+
+import { useContext } from 'react';
 function Languages() {
 
+    const { shadowSection, setShadowSection } = useContext(StyleContext)
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: 9,
         data: {
@@ -21,7 +25,8 @@ function Languages() {
     { name: "German", description: "Deep understanding", level: 3 },
     ]
 
-    return (<aside ref={setNodeRef} style={style} className="languages aside section">
+    return (<aside onMouseOver={() => setShadowSection(7)} onMouseOut={() => setShadowSection('')}
+        style={style} ref={setNodeRef} className={shadowSection === 7 ? "languages aside shadow-lg section" : "languages aside shadow-sm section"}>
         <div className="section-inner" {...listeners} {...attributes}>
             <h2 className="heading">Languages</h2>
             <div className="content">

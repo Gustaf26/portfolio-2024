@@ -3,8 +3,14 @@ import foreign from "../assets/images/foreign.png"
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities';
 
+import { useContext } from "react";
+
+import StyleContext from "../contexts/StyleContext";
+
 function Testimonials() {
 
+
+    const { shadowSection, setShadowSection } = useContext(StyleContext)
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: 7,
         data: {
@@ -16,7 +22,8 @@ function Testimonials() {
         transform: CSS.Translate.toString(transform),
     };
 
-    return (<aside style={style} ref={setNodeRef} className="testimonials aside section">
+    return (<aside onMouseOver={() => setShadowSection(5)} onMouseOut={() => setShadowSection('')}
+        style={style} ref={setNodeRef} className={shadowSection === 5 ? "testimonials aside shadow-lg section" : "testimonials aside shadow-sm section"}>
         <div {...listeners} {...attributes} className="section-inner">
             <h2 className="heading">Testimonials</h2>
             <div className="content">

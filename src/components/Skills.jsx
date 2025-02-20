@@ -1,8 +1,12 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useContext } from 'react'
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities';
 
+import StyleContext from '../contexts/StyleContext';
+
 function Skills() {
+
+    const { shadowSection, setShadowSection } = useContext(StyleContext)
 
     const [skillRefs, setskillRefs] = useState([
         useRef(null),
@@ -49,7 +53,8 @@ function Skills() {
 
 
 
-    return (<aside style={style} ref={setNodeRef} className="skills aside section">
+    return (<aside onMouseOver={() => setShadowSection(4)} onMouseOut={() => setShadowSection('')}
+        style={style} ref={setNodeRef} className={shadowSection === 4 ? "skills aside shadow-lg section" : "skills aside shadow-sm section"}>
         <div {...listeners} {...attributes} className="section-inner">
             <h2 className="heading">Skills</h2>
             <div className="content">

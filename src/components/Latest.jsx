@@ -1,7 +1,6 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import subfeatured from '../data.js'
-import like from "../assets/images/like.png"
-// import minButik from "../assets/images/projects/min-butik.png"
+import StyleContext from '../contexts/StyleContext.jsx'
 import ecommerce from "../assets/images/projects/e-commerce.png"
 import more_link from "../assets/images/foreign.png"
 
@@ -36,6 +35,7 @@ const SubFeatured = ({ info }) => {
 
 function Latest() {
 
+    const { shadowSection, setShadowSection } = useContext(StyleContext)
     const [subfeaturedSecs, setSubFeatured] = useState(subfeatured);
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: 2,
@@ -49,9 +49,10 @@ function Latest() {
     };
 
 
-    return (<section style={style} ref={setNodeRef} className="latest section" >
+    return (<section onMouseOver={() => setShadowSection(1)} onMouseOut={() => setShadowSection('')}
+        style={style} ref={setNodeRef} className={shadowSection === 1 ? "about shadow-lg section" : "about shadow-sm section"} >
         <span className="drag-me">DRAG ME</span>
-        <div {...listeners} {...attributes} className="section-inner shadow-sm rounded" >
+        <div {...listeners} {...attributes} className="section-inner rounded" >
             <h2 className="heading">Latest Projects</h2>
             <div className="item featured">
                 <div className="featured-image has-ribbon">

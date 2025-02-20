@@ -2,10 +2,14 @@ import locationimg from "../assets/images/location.png"
 import emailImg from '../assets/images/email.png'
 import linkimg from '../assets/images/link.png'
 
+import { useContext } from "react"
+import StyleContext from "../contexts/StyleContext"
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities';
 
 function BasicInfo() {
+
+    const { shadowSection, setShadowSection } = useContext(StyleContext)
 
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: 5,
@@ -25,7 +29,8 @@ function BasicInfo() {
     <li key={2}><img style={{ width: '14px', height: '14px', marginRight: '20px' }} src={linkimg} /><span className="sr-only">Website: </span><a
         href="#">https://catala-sverdrup.se</a></li>]
 
-    return (<aside style={style} {...listeners} {...attributes} className="pers-info aside section">
+    return (<aside onMouseOver={() => setShadowSection(3)} onMouseOut={() => setShadowSection('')}
+        style={style} ref={setNodeRef} className={shadowSection === 3 ? "pers-info aside shadow-lg section" : "pers-info aside shadow-sm section"}>
         <div ref={setNodeRef} className="section-inner">
             <h2 className="heading">Basic Information</h2>
             <div className="content">
