@@ -24,13 +24,13 @@ function Skills() {
         let myInt = setInterval(() => {
             let newLevels = otherLevels.map((lev, i) => {
                 if (otherLevels[i] == dummyLevels[i]) { return Number(lev) }
-                else { return Number(lev) + 10 }
+                else { return Number(lev) + 2 }
             })
 
             setLevels(newLevels)
             if (newLevels === dummyLevels) { console.log('Same levels'); clearInterval(myInt) }
             otherLevels = newLevels
-        }, 500)
+        }, 100)
 
     }, [])
 
