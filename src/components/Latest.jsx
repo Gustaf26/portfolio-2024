@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import subfeatured from '../data.js'
 import StyleContext from '../contexts/StyleContext.jsx'
-import ecommerce from "../assets/images/projects/e-commerce.png"
+import ecommerce from "../assets/images/projects/work-out.png"
 import more_link from "../assets/images/foreign.png"
 
 import { useDraggable } from '@dnd-kit/core'
@@ -50,7 +50,7 @@ function Latest() {
 
 
     return (<section onMouseOver={() => setShadowSection(1)} onMouseOut={() => setShadowSection('')}
-        style={style} ref={setNodeRef} className={shadowSection === 1 ? "about shadow-lg section" : "about shadow-sm section"} >
+        style={style} ref={setNodeRef} className={shadowSection === 1 ? "latest shadow-lg section" : "latest shadow-sm section"} >
         <span className="drag-me">DRAG ME</span>
         <div {...listeners} {...attributes} className="section-inner rounded" >
             <h2 className="heading">Latest Projects</h2>

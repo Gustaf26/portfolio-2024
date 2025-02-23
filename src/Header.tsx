@@ -26,7 +26,7 @@ function Header() {
                 </div>
             </div>
             <div id="contact">
-                <div className="dark-mode">
+                {/* <div className="dark-mode">
                     <div className="form-check">
                         <label className="switch">
                             <input type="checkbox" />
@@ -34,7 +34,7 @@ function Header() {
                         </label>
                         <span>Dark Mode</span>
                     </div>
-                </div>
+                </div> */}
                 <a href="mailto: gcs26@yahoo.com" target="">
                     CONTACT</a>
             </div>
