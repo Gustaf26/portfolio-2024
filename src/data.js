@@ -35,7 +35,7 @@ let subfeatured = [
     {
         image: minButik,
         title: ' Mathem Clone - A copy of the popular Swedish food company',
-        description: 'For this project I worked specifically with vanilla Javascript and Typescript. The product cards design was coded by my fellow co-worker at Sankta Maria, Mr. Lars Holmqvist. It was a cool project where my favorite part was coding the cart unctionality.',
+        description: 'For this project I worked specifically with vanilla Javascript and Typescript. The product cards design was coded by my fellow co-worker at Sankta Maria, Mr. Lars Holmqvist. It was a cool project where my favorite part was coding the cart functionality.',
         more_link: {
             "href": "https://min-butik.catala-sverdrup.se",
             "text": "Find out more"

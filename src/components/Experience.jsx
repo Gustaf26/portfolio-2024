@@ -12,23 +12,22 @@ function Experience() {
     const workExperience = [{
         title: "Web development Instructor",
         company: "Skta Maria Folkhögskola",
-        description: `Instructing adults in web dev main technologies for modern web applications using SQL and noSQL databases. 
-        Leading online courses`
+        description: `Instructing adults in web dev main technologies for modern web applications (in forntend and backend) using SQL and noSQL databases. 
+        Leading online courses and teaching adults how to code`
         , period: `(2021 - Present)`
     },
     {
         title: "Intern",
         company: "Cirk-l Workwear",
-        description: `Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci
-        eu suscipit pellentesque, mauris dui tincidunt enim. Sed fringilla mauris sit amet
-        nibh. Donec sodales sagittis magna.`
+        description: `At Cirkl I learned to work with Wordpress and take advantage of its API for frontend requests to the backend. 
+        It was my own idea to use it and make communication through URL params as well. Cirkl sold an own product for working clothes.`
         , period: `(jan - apr 2021)`
     },
     {
         title: "Intern",
         company: "Stjärnstoft Studios",
-        description: `Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet
-        adipiscing sem neque sed ipsum.`
+        description: `Stjärnstoft was all about games, so the UI needed some functionality adapted to the gaming world. In the period I was at Stjärnstoft
+        I learned to work agile in teams and take ownership of my own features. Using react was a great choice that made integration easier.`
         , period: `(oct - dec 2020)`
     }];
 
