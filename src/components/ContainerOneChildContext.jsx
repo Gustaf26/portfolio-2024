@@ -30,12 +30,12 @@ const ContainerOneChildContext = ({ containerIndexes, listeners, attributes, ite
 
 
     return (<div {...listeners} {...attributes}>
-        <DndContext modifiers={[restrictToVerticalAxis]} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-            <div style={{ padding: '30px' }} className={stylesClass} ref={setNodeRef} id="drag-container">
-                {indexes && indexes.map((ind) => { return items[ind] })
-                }
-            </div>
-        </DndContext>
+        {/* <DndContext modifiers={[restrictToVerticalAxis]} onDragStart={handleDragStart} onDragEnd={handleDragEnd}> */}
+        <div style={{ padding: '30px' }} className={stylesClass} ref={setNodeRef} id="drag-container">
+            {indexes && indexes.map((ind) => { return items[ind] })
+            }
+        </div>
+        {/* </DndContext> */}
     </div>)
 }
 

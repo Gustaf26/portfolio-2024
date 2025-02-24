@@ -23,12 +23,12 @@ const ContainerTwoChildContext = ({ containerIndexes, listeners, attributes, sec
     }, [containerIndexes])
 
     return (<div {...listeners} {...attributes}>
-        <DndContext modifiers={[restrictToVerticalAxis]} onDragStart={handleSecondStart} onDragEnd={handleDragEnd}>
-            <div style={{ padding: '30px' }} className={stylesClass} id="aside-sections" ref={setNodeRef}>
-                {secondIndexes && secondIndexes.map((ind) => { return secondItems[ind] })
-                }
-            </div>
-        </DndContext>
+        {/* <DndContext modifiers={[restrictToVerticalAxis]} onDragStart={handleSecondStart} onDragEnd={handleDragEnd}> */}
+        <div style={{ padding: '30px' }} className={stylesClass} id="aside-sections" ref={setNodeRef}>
+            {secondIndexes && secondIndexes.map((ind) => { return secondItems[ind] })
+            }
+        </div>
+        {/* </DndContext> */}
     </div>)
 }
 

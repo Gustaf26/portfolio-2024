@@ -169,14 +169,14 @@ const App = () => {
         <Header />
         <div className="main-container sections-wrapper">
           <div className="row" >
-            <DndContext modifiers={[restrictToHorizontalAxis]} onDragStart={handleContainerDragStart} onDragEnd={handleContainerDragEnd}>
-              {containerIndexes && containerItems && containerIndexes.map(ind => {
+            {/* <DndContext modifiers={[restrictToHorizontalAxis]} onDragStart={handleContainerDragStart} onDragEnd={handleContainerDragEnd}> */}
+            {containerIndexes && containerItems && containerIndexes.map(ind => {
 
-                return containerItems[ind]
-              }
-              )}
+              return containerItems[ind]
+            }
+            )}
 
-            </DndContext>
+            {/* </DndContext> */}
           </div >
         </div>
         < Footer />
