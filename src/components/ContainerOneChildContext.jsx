@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 
 
-const ContainerOneChildContext = ({ containerIndexes, listeners, attributes, items, indexes, handleDragStart, handleDragEnd }) => {
+const ContainerOneChildContext = ({ containerIndexes, listeners, attributes, items, indexes }) => {
 
     const [stylesClass, setStyleClass] = useState('')
 

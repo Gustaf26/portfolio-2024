@@ -3,10 +3,10 @@ import './assets/style.css'
 
 import { useEffect, useState, useRef } from 'react';
 
-import { DndContext } from '@dnd-kit/core'
-import {
-  restrictToHorizontalAxis
-} from '@dnd-kit/modifiers';
+// import { DndContext } from '@dnd-kit/core'
+// import {
+//   restrictToHorizontalAxis
+// } from '@dnd-kit/modifiers';
 
 import StyleContext from './contexts/StyleContext';
 
