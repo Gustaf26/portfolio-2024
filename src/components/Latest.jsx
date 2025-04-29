@@ -12,15 +12,15 @@ const SubFeatured = ({ info }) => {
 
     return (<div className="item">
         <a
-            href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/devcard-bootstrap-4-vcard-portfolio-template-for-software-developers/"
-            target="">
+            href={info.more_link.href}
+            target="_blank">
             <img className="img-fluid project-image rounded shadow-sm"
                 src={info.image} alt="project name" />
         </a>
         <div className="desc">
             <h3 className="title"><a
-                href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/devcard-bootstrap-4-vcard-portfolio-template-for-software-developers/"
-                target="">{info.title}</a></h3>
+                href={info.more_link.href}
+                target="_blank">{info.title}</a></h3>
             <p>{info.description}</p>
             <p><a className="more-link"
                 href={info.more_link.href}
