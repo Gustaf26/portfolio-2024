@@ -24,7 +24,7 @@ function About() {
     return (
         <section onMouseOver={() => setShadowSection(0)} onMouseOut={() => setShadowSection('')}
             style={style} ref={setNodeRef} className={shadowSection === 0 ? "about shadow-lg section" : "about shadow-sm section"} >
-            <span className="drag-me">DRAG ME</span>
+            {/* <span className="drag-me">DRAG ME</span> */}
             <div className="section-inner rounded" >
                 <h2 className="heading"> About Me </h2>
                 <div {...listeners} {...attributes} className="content">

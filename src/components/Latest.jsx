@@ -51,7 +51,7 @@ function Latest() {
 
     return (<section onMouseOver={() => setShadowSection(1)} onMouseOut={() => setShadowSection('')}
         style={style} ref={setNodeRef} className={shadowSection === 1 ? "latest shadow-lg section" : "latest shadow-sm section"} >
-        <span className="drag-me">DRAG ME</span>
+        {/* <span className="drag-me">DRAG ME</span> */}
         <div {...listeners} {...attributes} className="section-inner rounded" >
             <h2 className="heading">Latest Projects</h2>
             <div className="item featured">

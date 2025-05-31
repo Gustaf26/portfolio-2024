@@ -1,34 +1,15 @@
-import { useState, useEffect } from 'react'
-import { DndContext, useDroppable } from '@dnd-kit/core'
-import {
-    restrictToVerticalAxis,
-} from '@dnd-kit/modifiers';
+import { useState } from 'react'
 
-
-const ContainerTwoChildContext = ({ containerIndexes, listeners, attributes, secondItems, secondIndexes, handleSecondStart, handleDragEnd }) => {
+const ContainerTwoChildContext = ({ secondItems }) => {
 
     const [stylesClass, setStyleClass] = useState('')
 
-    const { setNodeRef } = useDroppable({
-        id: 'droppable2',
-        data: {
-            type: 'type4',
-        },
-    });
 
-    useEffect(() => {
-        if (containerIndexes != undefined) {
-            setStyleClass(containerIndexes[1] === 1 ? 'aside-sections' : 'extra-aside-styles')
-        }
-    }, [containerIndexes])
-
-    return (<div {...listeners} {...attributes}>
-        {/* <DndContext modifiers={[restrictToVerticalAxis]} onDragStart={handleSecondStart} onDragEnd={handleDragEnd}> */}
-        <div style={{ padding: '30px' }} className={stylesClass} id="aside-sections" ref={setNodeRef}>
-            {secondIndexes && secondIndexes.map((ind) => { return secondItems[ind] })
+    return (<div >
+        <div style={{ padding: '30px' }} className={stylesClass} id="aside-sections" >
+            {secondItems && secondItems.map((ind) => { return ind })
             }
         </div>
-        {/* </DndContext> */}
     </div>)
 }
 
