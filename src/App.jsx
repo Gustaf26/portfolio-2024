@@ -10,13 +10,13 @@ import ContainerTwo from './sections/container-two/ContainerTwo'
 import About from './sections/container-one/About';
 import Latest from './sections/container-one/Latest';
 import Experience from './sections/container-one/Experience';
-import Header from './Header';
+import Header from './components/Header';
 import BasicInfo from './sections/container-two/BasicInfo';
 import Skills from './sections/container-two/Skills';
 import Testimonials from './sections/container-two/Testimonials';
 import Education from './sections/container-two/Education';
 import Languages from './sections/container-two/Languages';
-import Footer from './Footer';
+import Footer from './components/Footer';
 
 
 

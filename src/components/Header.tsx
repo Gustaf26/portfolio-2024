@@ -1,8 +1,7 @@
-import profPic from "./assets/images/profile.jpg"
-import linkedIn from "./assets/images/linkedin.png"
-import github from "./assets/images/github.png"
-import twitter from "./assets/images/twitter.png"
-// import plane from "./assets/images/paper-plane.png"
+import profPic from "../assets/images/profile.jpg"
+import linkedIn from "../assets/images/linkedin.png"
+import github from "../assets/images/github.png"
+import twitter from "../assets/images/twitter.png"
 
 
 function Header() {

@@ -1,8 +1,8 @@
-import covid from './assets/images/projects/dark-covid.png'
-import chat from './assets/images/projects/chat.png'
+import covid from '../assets/images/projects/dark-covid.png'
+import chat from '../assets/images/projects/chat.png'
 // import ecommerce from './assets/images/projects/e-commerce.png'
-import speaking from './assets/images/projects/Speaking.jpg'
-import minButik from './assets/images/projects/min-butik.png'
+import speaking from '../assets/images/projects/Speaking.jpg'
+import minButik from '../assets/images/projects/min-butik.png'
 
 let subfeatured = [
     {
