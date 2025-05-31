@@ -2,7 +2,7 @@
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities';
 import { useContext } from 'react';
-import StyleContext from '../contexts/StyleContext';
+import StyleContext from '../../contexts/StyleContext';
 
 
 function Experience() {
@@ -45,7 +45,7 @@ function Experience() {
     return (
         <section onMouseOver={() => setShadowSection(2)} onMouseOut={() => setShadowSection('')}
             style={style} ref={setNodeRef} className={shadowSection === 2 ? "experience shadow-lg section" : "experience shadow-sm section"}>
-            <span className="drag-me">DRAG ME</span>
+            {/* <span className="drag-me">DRAG ME</span> */}
             <div {...listeners} {...attributes}>
                 <h2 className="heading">Work Experience</h2>
                 <div className="content">

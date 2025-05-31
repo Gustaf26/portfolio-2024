@@ -5,7 +5,7 @@ import { CSS } from '@dnd-kit/utilities';
 
 import { useContext } from "react";
 
-import StyleContext from "../contexts/StyleContext";
+import StyleContext from "../../contexts/StyleContext";
 
 function Testimonials() {
 

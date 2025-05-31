@@ -3,7 +3,7 @@ import emailImg from '../assets/images/email.png'
 import linkimg from '../assets/images/link.png'
 
 import { useContext } from "react"
-import StyleContext from "../contexts/StyleContext"
+import StyleContext from "../../contexts/StyleContext"
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities';
 

@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
-import subfeatured from '../data.js'
-import StyleContext from '../contexts/StyleContext.jsx'
+import subfeatured from '../../data.js'
+import StyleContext from '../../contexts/StyleContext.jsx'
 import ecommerce from "../assets/images/projects/mobile.png"
 import more_link from "../assets/images/foreign.png"
 

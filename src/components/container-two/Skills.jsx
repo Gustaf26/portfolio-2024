@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, useContext } from 'react'
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities';
 
-import StyleContext from '../contexts/StyleContext';
+import StyleContext from '../../contexts/StyleContext';
 
 function Skills() {
 

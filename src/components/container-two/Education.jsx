@@ -1,7 +1,7 @@
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities';
 
-import StyleContext from '../contexts/StyleContext';
+import StyleContext from '../../contexts/StyleContext';
 
 import { useContext } from 'react';
 
