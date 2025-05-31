@@ -5,17 +5,17 @@ import StyleContext from './contexts/StyleContext';
 
 import './assets/style.css'
 
-import ContainerOne from './components/container-one/ContainerOne'
-import ContainerTwo from './components/container-two/ContainerTwo'
-import About from './components/container-one/About';
-import Latest from './components/container-one/Latest';
-import Experience from './components/container-one/Experience';
+import ContainerOne from './sections/container-one/ContainerOne'
+import ContainerTwo from './sections/container-two/ContainerTwo'
+import About from './sections/container-one/About';
+import Latest from './sections/container-one/Latest';
+import Experience from './sections/container-one/Experience';
 import Header from './Header';
-import BasicInfo from './components/container-two/BasicInfo';
-import Skills from './components/container-two/Skills';
-import Testimonials from './components/container-two/Testimonials';
-import Education from './components/container-two/Education';
-import Languages from './components/container-two/Languages';
+import BasicInfo from './sections/container-two/BasicInfo';
+import Skills from './sections/container-two/Skills';
+import Testimonials from './sections/container-two/Testimonials';
+import Education from './sections/container-two/Education';
+import Languages from './sections/container-two/Languages';
 import Footer from './Footer';
 
 
