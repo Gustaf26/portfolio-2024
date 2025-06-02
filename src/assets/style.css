@@ -69,11 +69,23 @@ header .profile-container {
     justify-content: center;
     align-items: center;
 
+    @media screen and (max-width:600px) {
+        width: 80%;
+    }
+
     & h1,
     h2 {
         text-align: left;
         margin-left: 30px;
         width: 100%;
+    }
+
+    & h1 {
+        & span {
+            color: rgb(236, 151, 236);
+            font-weight: bolder;
+        }
+
     }
 
     & .profile-image {
@@ -82,6 +94,10 @@ header .profile-container {
         border-radius: 50%;
         object-fit: cover;
         filter: grayscale(100%);
+
+        @media screen and (max-width:600px) {
+            display: none;
+        }
 
         &:hover {
             transform: scale(1.1);
@@ -158,24 +174,30 @@ header ul img {
             flex-direction: column;
             align-items: center;
 
-            & button {
-                height: 60px;
-                width: fit-content;
-                background-color: rgba(78, 102, 109, 0.4);
-                border: 1px solid rgb(110, 110, 110);
-                border-radius: 3px;
-
-                & a {
-                    background-color: transparent;
-                    color: black;
-                }
-
-            }
         }
     }
 
-
     /* background-image: url('./images/my-profile.jpg'); */
+}
+
+#contact-me-button {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    height: 60px;
+    margin-left: 40px;
+    width: fit-content;
+    background-color: rgba(240, 241, 241, 0.7);
+    border: 1px solid black;
+    border-radius: 3px;
+
+    & a {
+        background-color: transparent;
+        color: black;
+        font-weight: 100;
+        font-size: 1.4em;
+    }
+
 }
 
 /* header #contact a {
@@ -300,6 +322,7 @@ img {
     padding-top: 20px;
     padding-bottom: 20px;
     max-width: 100vw;
+    height: 100vh;
 }
 
 .main-container.sections-wrapper div.row div:nth-child(1),

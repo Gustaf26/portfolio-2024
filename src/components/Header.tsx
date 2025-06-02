@@ -11,7 +11,8 @@ function Header() {
             <div className="profile-container">
                 <img className="profile-image" src={profPic} alt="profile image" />
                 <div className="profile-content">
-                    <h1 className="name">Gustavo C. S.</h1>
+                    <h1 className="name">
+                        <span>Gustavo </span>C. S.</h1>
                     <h2 className="desc">Developer /  Instructor</h2>
 
                 </div>

@@ -42,7 +42,7 @@ const App = () => {
 
 
   return (
-    <>
+    <div>
       <StyleContext.Provider value={{ shadowSection, setShadowSection }}>
         <Header />
         <Contact />
@@ -52,10 +52,15 @@ const App = () => {
               return item
             })}
           </div >
+          <button id="contact-me-button">
+            <a href="mailto: gcs26@yahoo.com" target="">
+              CONTACT ME</a>
+          </button>
         </div>
+
         < Footer />
       </StyleContext.Provider>
-    </>
+    </div>
   )
 }
 

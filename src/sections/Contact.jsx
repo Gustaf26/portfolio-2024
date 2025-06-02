@@ -41,11 +41,6 @@ export default function Contact() {
             <h3>{msg}</h3>
             <img alt='profile' src={myProfile} />
             <div id="contact">
-
-                <button>
-                    <a href="mailto: gcs26@yahoo.com" target="">
-                        CONTACT ME</a>
-                </button>
             </div>
         </div>
     </div>)
