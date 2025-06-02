@@ -12,7 +12,7 @@ function Header() {
                 <img className="profile-image" src={profPic} alt="profile image" />
                 <div className="profile-content">
                     <h1 className="name">Gustavo C. S.</h1>
-                    <h2 className="desc">Web Dev Instructor</h2>
+                    <h2 className="desc">Developer /  Instructor</h2>
 
                 </div>
             </div>
