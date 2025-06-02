@@ -17,6 +17,7 @@ import Testimonials from './sections/container-two/Testimonials';
 import Education from './sections/container-two/Education';
 import Languages from './sections/container-two/Languages';
 import Footer from './components/Footer';
+import Contact from './sections/Contact.jsx'
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
     <>
       <StyleContext.Provider value={{ shadowSection, setShadowSection }}>
         <Header />
+        <Contact />
         <div className="main-container sections-wrapper">
           <div className="row" >
             {containerItems && containerItems.map(item => {

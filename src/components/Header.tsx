@@ -13,21 +13,18 @@ function Header() {
                 <div className="profile-content">
                     <h1 className="name">Gustavo C. S.</h1>
                     <h2 className="desc">Web Dev Instructor</h2>
-                    <ul className="social list-inline">
-                        <li><a href="https://twitter.com/GustavoGcs26" target="">
-                            <img src={twitter} /></a>
-                        </li>
-                        <li><a href="https://www.linkedin.com/in/gustavo-catala-sverdrup-40128427/?originalSubdomain=se"
-                            target=""><img src={linkedIn} /></a></li>
-                        <li><a href="https://github.com/Gustaf26" target=""><img
-                            src={github} /></a></li>
-                    </ul>
+
                 </div>
             </div>
-            <div id="contact">
-                <a href="mailto: gcs26@yahoo.com" target="">
-                    CONTACT</a>
-            </div>
+            <ul className="social list-inline">
+                <li><a href="https://twitter.com/GustavoGcs26" target="">
+                    <img src={twitter} /></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/gustavo-catala-sverdrup-40128427/?originalSubdomain=se"
+                    target=""><img src={linkedIn} /></a></li>
+                <li><a href="https://github.com/Gustaf26" target=""><img
+                    src={github} /></a></li>
+            </ul>
         </div>
     </header>)
 }
