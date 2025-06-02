@@ -10,38 +10,47 @@ export default function Contact() {
 
     useEffect(() => {
 
-        let string2 = 'Hi there!'
         let string3 = '...'
-
+        let strings = ['Desarrollador', 'Instructor', 'Utbildare', 'Utvecklare', 'Developer']
         let index = 0
+        let stringsIndex = 0;
         let myMsg = ''
-        let stringToShow = string2
+        let stringToShow = strings[stringsIndex]
         const myInt = setInterval(() => {
-            if (stringToShow === string3 && index === 3) {
-                stringToShow = string2
-                index = 0;
-                myMsg = ''
-            }
-            if (myMsg.length > 8) {
-                myMsg = '.';
+
+            if (myMsg.length === stringToShow.length && stringToShow !== string3) {
+                myMsg = '';
                 index = 0
                 stringToShow = string3
             }
-            else {
-                myMsg += stringToShow[index];
+
+            if (stringToShow === string3 && index === string3.length) {
+                myMsg = '';
+                index = 0
+                stringsIndex += 1
+                if (stringsIndex === strings.length) { stringsIndex = 0 }
+                stringToShow = strings[stringsIndex]
             }
+            else if (stringToShow != string3) {
+                stringToShow = strings[stringsIndex]
+            }
+
+            myMsg += stringToShow[index]
             setMsg(myMsg)
             index += 1
+
         }, 500)
 
     }, [])
 
     return (<div id="contact-container">
         <div id="contact-pic">
-            <h3>{msg}</h3>
-            <img alt='profile' src={myProfile} />
-            <div id="contact">
+            <div id="about-me-container">
+                <h2>Soy / <em>Är</em> / <b>I am</b> </h2>
+                <h3>{msg}</h3>
             </div>
+
+            <img alt='profile' src={myProfile} />
         </div>
     </div>)
 }
