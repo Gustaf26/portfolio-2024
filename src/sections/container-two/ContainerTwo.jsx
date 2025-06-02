@@ -11,7 +11,7 @@ const ContainerTwo = ({ secondItems }) => {
     const [style, setStyle] = useState({})
 
     return (
-        <div style={{ ...style, height: 'fit-content', padding: '30px', backgroundColor: 'lightgrey' }}>
+        <div style={{ ...style, height: 'fit-content', padding: '30px' }}>
             <ContainerTwoChildContext secondItems={secondItems} />
         </div>
     );

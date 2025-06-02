@@ -24,7 +24,7 @@ import Contact from './sections/Contact.jsx'
 const App = () => {
   const [shadowSection, setShadowSection] = useState('')
 
-  const [items, setItems] = useState([<About key="about" />, <Latest key="latest" />, <Experience key="experience" />])
+  const [items, setItems] = useState([<Latest key="latest" />, <Experience key="experience" />])
   const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Skills key="skills" />, <Testimonials key="Testimonials" />, <Education key="Education" />, <Languages key="languages" />])
 
   const [containerItems, setContainerItems] = useState([])
@@ -42,24 +42,25 @@ const App = () => {
 
 
   return (
-    <div>
+    <div style={{ height: 'fit-content' }}>
       <StyleContext.Provider value={{ shadowSection, setShadowSection }}>
         <Header />
         <Contact />
+        <About />
         <div className="main-container sections-wrapper">
-          <div className="row" >
+          <div >
             {containerItems && containerItems.map(item => {
               return item
             })}
           </div >
+
           <button id="contact-me-button">
             <a href="mailto: gcs26@yahoo.com" target="">
               CONTACT ME</a>
           </button>
         </div>
-
-        < Footer />
       </StyleContext.Provider>
+      < Footer />
     </div>
   )
 }

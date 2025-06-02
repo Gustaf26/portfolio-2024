@@ -8,7 +8,7 @@ const ContainerOne = ({ items }) => {
     const [style, setStyle] = useState({})
 
     return (
-        <div style={{ ...style, height: 'fit-content', padding: '30px', backgroundColor: 'lightgrey' }}>
+        <div style={{ ...style, height: 'fit-content' }}>
             <ContainerOneChildContext
                 items={items} />
         </div>

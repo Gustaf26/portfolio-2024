@@ -9,7 +9,7 @@ const ContainerOneChildContext = ({ items }) => {
 
 
     return (<div>
-        <div style={{ padding: '30px' }} className={stylesClass} id="drag-container">
+        <div id="drag-container">
             {items && items.map((item) => { return item })
             }
         </div>

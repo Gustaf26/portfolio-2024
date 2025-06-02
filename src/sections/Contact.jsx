@@ -11,7 +11,7 @@ export default function Contact() {
     useEffect(() => {
 
         let string3 = '...'
-        let strings = ['Desarrollador', 'Instructor', 'Utbildare', 'Utvecklare', 'Developer']
+        let strings = ['Desarrollador', 'Instructor', 'Utbildare', 'Utvecklare', 'Developer', 'Guitarrist', 'Lingvist']
         let index = 0
         let stringsIndex = 0;
         let myMsg = ''
