@@ -44,13 +44,15 @@ export default function Contact() {
     }, [])
 
     return (<div id="contact-container">
-        <div id="contact-pic">
-            <div id="about-me-container">
+        <div id="main-pic-section">
+            <div id="about-me-msg-container">
                 <h2>Soy / <em>Är</em> / <b>I am</b> </h2>
                 <h3>{msg}</h3>
             </div>
+            <div id="pic-container">
+                <img alt='profile' src={myProfile} />
+            </div>
 
-            <img alt='profile' src={myProfile} />
         </div>
     </div>)
 }
