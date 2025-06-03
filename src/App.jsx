@@ -5,8 +5,6 @@ import StyleContext from './contexts/StyleContext';
 
 import './assets/style.css'
 
-import ContainerOne from './sections/container-one/ContainerOne'
-import ContainerTwo from './sections/container-two/ContainerTwo'
 import About from './sections/container-one/About';
 import Latest from './sections/container-one/Latest';
 import Experience from './sections/container-one/Experience';
@@ -20,25 +18,11 @@ import Footer from './components/Footer';
 import Contact from './sections/Contact.jsx'
 
 
-
 const App = () => {
   const [shadowSection, setShadowSection] = useState('')
 
   const [items, setItems] = useState([<Latest key="latest" />, <Experience key="experience" />])
   const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Skills key="skills" />, <Testimonials key="Testimonials" />, <Education key="Education" />, <Languages key="languages" />])
-
-  const [containerItems, setContainerItems] = useState([])
-
-
-  useEffect(() => {
-
-    const randomKey1 = Math.floor(Math.random() * 100000)
-    const randomKey2 = Math.floor(Math.random() * 100000)
-
-    setContainerItems([<ContainerOne key={randomKey1} items={items} />,
-    <ContainerTwo key={randomKey2} secondItems={secondItems} />])
-
-  }, [])
 
 
   return (
@@ -47,13 +31,9 @@ const App = () => {
         <Header />
         <Contact />
         <About />
-        <div className="main-container sections-wrapper">
-          <div >
-            {containerItems && containerItems.map(item => {
-              return item
-            })}
-          </div >
-
+        <div className="main-container">
+          {items.length ? items.map(item => item) : null}
+          {secondItems.length ? secondItems.map(item => item) : null}
           <button id="contact-me-button">
             <a href="mailto: gcs26@yahoo.com" target="">
               CONTACT ME</a>

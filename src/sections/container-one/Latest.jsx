@@ -4,8 +4,6 @@ import StyleContext from '../../contexts/StyleContext.jsx'
 import ecommerce from "../../assets/images/projects/mobile.png"
 import more_link from "../../assets/images/foreign.png"
 
-import { useDraggable } from '@dnd-kit/core'
-import { CSS } from '@dnd-kit/utilities';
 
 
 const SubFeatured = ({ info }) => {
@@ -37,22 +35,11 @@ function Latest() {
 
     const { shadowSection, setShadowSection } = useContext(StyleContext)
     const [subfeaturedSecs, setSubFeatured] = useState(subfeatured);
-    const { attributes, listeners, setNodeRef, transform } = useDraggable({
-        id: 2,
-        data: {
-            supports: 'type3',
-        },
-    });
-
-    const style = {
-        transform: CSS.Translate.toString(transform),
-    };
 
 
     return (<section onMouseOver={() => setShadowSection(1)} onMouseOut={() => setShadowSection('')}
-        style={style} ref={setNodeRef} className={shadowSection === 1 ? "latest shadow-lg section" : "latest shadow-sm section"} >
-        {/* <span className="drag-me">DRAG ME</span> */}
-        <div {...listeners} {...attributes} className="section-inner rounded" >
+        className={shadowSection === 1 ? "latest shadow-lg section" : "latest shadow-sm section"} >
+        <div className="section-inner rounded" >
             <h2 className="heading">Latest Projects</h2>
             <div className="item featured">
                 <div className="featured-image has-ribbon">

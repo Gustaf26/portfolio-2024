@@ -25,7 +25,7 @@ function About() {
             className={shadowSection === 0 ? "about shadow-lg section" : "about shadow-sm section"} >
             <div className="section-inner rounded" >
                 <div className="content">
-                    <p>Born in <span>Madrid</span>, I am an international developer with residence in Sweden who came to Malmö after living in
+                    <p>Born in <span>Madrid</span>, I am an international developer with residence in Sweden who came to <span>Malmö</span> after living in
                         Madrid, Lund and Stockholm.<br></br>
                         I am a cosmopolitan, though my roots are both in <span>Sweden</span> and <span>Spain</span>. I am passionate about
                         languages, and working with web dev implies learning new (and old) programming languages
