@@ -1,68 +1,63 @@
 import { useState, useContext } from 'react'
-import subfeatured from '../../data/data.js'
+import projects from '../../data/data.js'
 import StyleContext from '../../contexts/StyleContext.jsx'
-import ecommerce from "../../assets/images/projects/mobile.png"
-import more_link from "../../assets/images/foreign.png"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRotate } from '@fortawesome/free-solid-svg-icons'
 
 
 const SubFeatured = ({ info }) => {
 
-    return (<div className="item">
+    return (<div id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item' : 'item last-item'}>
         <a
-            href={info.more_link.href}
+            href={info.sec.more_link.href}
             target="_blank">
             <img className="img-fluid project-image rounded shadow-sm"
-                src={info.image} alt="project name" />
+                src={info.sec.image} alt="project name" />
         </a>
         <div className="desc">
-            <h3 className="title"><a
-                href={info.more_link.href}
-                target="_blank">{info.title}</a></h3>
-            <p>{info.description}</p>
-            <p><a className="more-link"
-                href={info.more_link.href}
-                target=""><img className="external-link"
-                    src={more_link} />Find out more</a></p>
+            {/* <h3 className="title"><a
+                href={info.sec.more_link.href}
+                target="_blank">{info.sec.title}</a></h3> */}
+            {/* <p>{info.sec.description}</p> */}
+            {/* <p><a className="more-link"
+                href={info.sec.more_link.href}
+                target="">Find out more</a>
+            </p> */}
         </div>
     </div>
     )
 }
 
 
-
 function Latest() {
 
     const { shadowSection, setShadowSection } = useContext(StyleContext)
-    const [subfeaturedSecs, setSubFeatured] = useState(subfeatured);
+    const [sectionProjects, setProjects] = useState(projects)
 
+    const rotate = (e) => {
+
+        e.target.classList.add('rotated')
+
+        let dummyProjects = []
+        sectionProjects.forEach((project, i) => {
+            i === 3 ? dummyProjects[0] = project : dummyProjects[i + 1] = project
+        })
+
+        setProjects(dummyProjects)
+
+        setTimeout(() => {
+            e.target.classList.remove('rotated')
+        }, 500)
+    }
 
     return (<section onMouseOver={() => setShadowSection(1)} onMouseOut={() => setShadowSection('')}
-        className={shadowSection === 1 ? "latest shadow-lg section" : "latest shadow-sm section"} >
-        <h2 className="heading">Latest Projects</h2>
-        <div className="item featured">
-            <a href="https://e-commerce.catala-sverdrup.se" target="">
-                <img className="img-fluid project-image rounded shadow-sm"
-                    src={ecommerce} alt="project name" />
-            </a>
-            <div className="featured-info">
-                <h3 className="title"><a href="https://min-butik.catala-sverdrup.se" target="">
-                    E-commerce - CMS for retailers who want a flexible solution</a></h3>
-
-                <div className="desc">
-                    <p>Being this my examination project, it never saw the light of being actually used by retailers.
-                        But the page was finnished with that purpose, even if it needs a better design</p>
-                </div>
-                <a className="btn" href="https://e-commerce.catala-sverdrup.se"
-                    target="">VIEW</a>
-            </div>
-        </div>
-        <hr />
-        {/* <div className="secondary">
-            {subfeaturedSecs && subfeaturedSecs.map(sec => {
-                return (<div key={sec.title} > <SubFeatured info={sec} /></div >)
-            })}
-        </div> */}
+        className="projects section" >
+        <button id="rotate-projects-button" >
+            <FontAwesomeIcon onClick={rotate} icon={faRotate} />
+        </button>
+        {sectionProjects && sectionProjects.map((sec, i) => {
+            return (<SubFeatured info={{ sec, i }} />)
+        })}
     </section >)
 
 }
