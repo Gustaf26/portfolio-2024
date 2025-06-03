@@ -139,7 +139,8 @@ header ul img {
         width: 100%;
         margin: 0 auto;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 40px;
         flex-direction: row;
         align-items: start;
         position: relative;
@@ -153,7 +154,6 @@ header ul img {
 
         & #about-me-msg-container {
             padding: 20px;
-            margin: 20px auto;
             min-width: 400px;
 
             & h2 {
@@ -171,7 +171,6 @@ header ul img {
                 font-family: 'Courier New', Courier, monospace;
                 background-color: rgba(0, 0, 0, 0.6);
                 padding: 10px;
-                /* z-index: 5; */
                 margin: 0 auto;
             }
 
@@ -188,25 +187,20 @@ header ul img {
         }
 
         & #pic-container {
-
-            flex-grow: 1;
             max-width: 900px;
-            margin: 0 auto;
 
             & img {
                 max-width: 100%;
                 margin: 0 auto;
-                /* max-height: 700px; */
-                /* flex-grow: 1; */
                 object-fit: cover;
                 filter: grayscale(90%) brightness(120%) contrast(140%);
             }
         }
 
     }
-
-    /* background-image: url('./images/my-profile.jpg'); */
 }
+
+/* CONTACT BUTTON FIXED */
 
 #contact-me-button {
     position: fixed;
@@ -284,11 +278,10 @@ img {
     filter: brightness(160%);
     padding: 40px;
 
-
-
-
     & .content {
         width: 80%;
+        max-width: 850px;
+        font-weight: 300;
         margin: 0 auto;
         font-size: large;
         animation: show 3s linear forwards;
