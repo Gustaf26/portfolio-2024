@@ -39,16 +39,13 @@ function Latest() {
 
     return (<section onMouseOver={() => setShadowSection(1)} onMouseOut={() => setShadowSection('')}
         className={shadowSection === 1 ? "latest shadow-lg section" : "latest shadow-sm section"} >
-        <div className="section-inner rounded" >
-            <h2 className="heading">Latest Projects</h2>
-            <div className="item featured">
-                <div className="featured-image has-ribbon">
-                    <a href="https://e-commerce.catala-sverdrup.se" target="">
-                        <img className="img-fluid project-image rounded shadow-sm"
-                            src={ecommerce} alt="project name" />
-                    </a>
-                </div>
-
+        <h2 className="heading">Latest Projects</h2>
+        <div className="item featured">
+            <a href="https://e-commerce.catala-sverdrup.se" target="">
+                <img className="img-fluid project-image rounded shadow-sm"
+                    src={ecommerce} alt="project name" />
+            </a>
+            <div className="featured-info">
                 <h3 className="title"><a href="https://min-butik.catala-sverdrup.se" target="">
                     E-commerce - CMS for retailers who want a flexible solution</a></h3>
 
@@ -59,13 +56,13 @@ function Latest() {
                 <a className="btn" href="https://e-commerce.catala-sverdrup.se"
                     target="">VIEW</a>
             </div>
-            <hr />
-            <div className="secondary">
-                {subfeaturedSecs && subfeaturedSecs.map(sec => {
-                    return (<div key={sec.title} > <SubFeatured info={sec} /></div >)
-                })}
-            </div>
         </div>
+        <hr />
+        {/* <div className="secondary">
+            {subfeaturedSecs && subfeaturedSecs.map(sec => {
+                return (<div key={sec.title} > <SubFeatured info={sec} /></div >)
+            })}
+        </div> */}
     </section >)
 
 }

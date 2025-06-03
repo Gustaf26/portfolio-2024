@@ -541,18 +541,56 @@ section {
     margin: 0px auto 30px auto;
 }
 
-.skills .skillset {
+.skills {
 
-    & h3 {
-        width: fit-content;
-        color: rgb(107, 142, 169);
-        font-size: medium;
-    }
+    width: 60%;
 
-    & .progress {
-        margin: 10px auto;
-        background-size: 20px;
+    & .skillset {
 
+
+        & h3 {
+            width: fit-content;
+            color: rgb(107, 142, 169);
+            margin: 10px;
+            font-size: medium;
+        }
+
+
+        & .progress {
+            /* height: 15px; */
+            width: 95%;
+            margin: 0 auto;
+            position: relative;
+            margin: 10px 10px;
+            background: whitesmoke;
+            border-radius: 25px;
+            padding: 0;
+            z-index: 10;
+        }
+
+        & span.progress-bar-value {
+            display: block;
+            height: 100%;
+            border-radius: 20px;
+            background-color: rgb(65, 194, 100);
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        & h3 {
+            width: fit-content;
+            color: rgb(107, 142, 169);
+            font-size: medium;
+        }
+
+        & .progress {
+            margin: 10px auto;
+            background-size: 20px;
+
+        }
     }
 }
 
@@ -1066,10 +1104,40 @@ footer {
         justify-content: start;
         align-items: center;
 
-        & .latest {
-            margin: 0 auto;
+        & section.latest {
+
             display: flex;
+            width: 100%;
             justify-content: center;
+            flex-direction: column;
+
+            & h2 {
+                text-align: center;
+            }
+
+            & .featured {
+                margin: 30px auto;
+                width: 70%;
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+
+                & a {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                & .featured-info {
+                    width: 80%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+            }
         }
 
         & .first-sections {

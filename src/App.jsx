@@ -22,7 +22,7 @@ const App = () => {
   const [shadowSection, setShadowSection] = useState('')
 
   const [items, setItems] = useState([<Latest key="latest" />, <Experience key="experience" />])
-  const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Skills key="skills" />, <Testimonials key="Testimonials" />, <Education key="Education" />, <Languages key="languages" />])
+  const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Testimonials key="Testimonials" />, <Education key="Education" />, <Languages key="languages" />])
 
 
   return (
@@ -31,6 +31,7 @@ const App = () => {
         <Header />
         <Contact />
         <About />
+        <Skills />
         <div className="main-container">
           {items.length ? items.map(item => item) : null}
           {secondItems.length ? secondItems.map(item => item) : null}
@@ -40,7 +41,7 @@ const App = () => {
           </button>
         </div>
       </StyleContext.Provider>
-      < Footer />
+      {/* < Footer /> */}
     </div>
   )
 }
