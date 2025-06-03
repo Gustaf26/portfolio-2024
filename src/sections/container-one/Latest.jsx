@@ -7,23 +7,24 @@ import { faRotate } from '@fortawesome/free-solid-svg-icons'
 
 const SubFeatured = ({ info }) => {
 
-    return (<div id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item' : 'item last-item'}>
+    const [hovered, setHovered] = useState(false)
+
+    return (<div onMouseOver={() => info.i === 0 ? setHovered(true) : null} onMouseOut={() => info.i === 0 ? setHovered(false) : null}
+        id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item' : 'item last-item'}>
         <a
             href={info.sec.more_link.href}
             target="_blank">
+            {hovered ? <h3 className="title">{info.sec.title}</h3> : null}
             <img className="img-fluid project-image rounded shadow-sm"
                 src={info.sec.image} alt="project name" />
         </a>
-        <div className="desc">
-            {/* <h3 className="title"><a
+        {hovered ? <div className="featured-desc">
+            <p>{info.sec.description}</p>
+            <p><a
                 href={info.sec.more_link.href}
-                target="_blank">{info.sec.title}</a></h3> */}
-            {/* <p>{info.sec.description}</p> */}
-            {/* <p><a className="more-link"
-                href={info.sec.more_link.href}
-                target="">Find out more</a>
-            </p> */}
-        </div>
+                target="">See Project</a>
+            </p>
+        </div> : null}
     </div>
     )
 }

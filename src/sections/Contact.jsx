@@ -39,7 +39,7 @@ export default function Contact() {
             setMsg(myMsg)
             index += 1
 
-        }, 500)
+        }, 300)
 
     }, [])
 

@@ -1,8 +1,7 @@
 import { useRef, useState, useEffect, useContext } from 'react'
-import { useDraggable } from '@dnd-kit/core'
-import { CSS } from '@dnd-kit/utilities';
 
-import StyleContext from '../../contexts/StyleContext';
+
+import StyleContext from '../contexts/StyleContext';
 
 function Skills() {
 
@@ -62,7 +61,7 @@ function Skills() {
             // console.log(levelsLoaded)
             let myInt = setInterval(() => {
                 let newLevels = otherLevels.map((lev, i) => {
-                    if (i === 0) levelsShining[i].style.background = `linear-gradient(to right, lightblue ${10 - lev}%, white ${lev}%, lightblue 100%)`
+                    if (i === 0) levelsShining[i].style.background = `linear-gradient(to right, rgb(241, 211, 241) ${10 - lev}%, white ${lev}%, rgb(241, 211, 241) 100%)`
 
                     if (otherLevels[i] == dummyLevels[i]) { return Number(lev) }
                     else { return Number(lev) + 5 }
@@ -84,9 +83,7 @@ function Skills() {
                 if (compareArrays()) {
                     console.log('Same dummy levels');
                     newLevels.forEach((lev, i) => {
-                        // console.log(levelsShining[i])
-                        // levelsShining[i].style.width = `${Number(lev) * 5}px`
-                        levelsShining[i].style.background = i === 0 ? 'lightblue' : 'rgb(78, 102, 109)'
+                        levelsShining[i].style.background = i === 0 ? 'rgb(241, 211, 241)' : 'rgb(78, 102, 109)'
                     })
                     clearInterval(myInt)
                 }
@@ -95,16 +92,7 @@ function Skills() {
         }
     }, [levelsLoaded])
 
-    const { attributes, listeners, setNodeRef, transform } = useDraggable({
-        id: 6,
-        data: {
-            supports: 'type4',
-        },
-    });
 
-    const style = {
-        transform: CSS.Translate.toString(transform),
-    };
 
     const skills = [{ name: "Javascript", level: levels[0], ref: skillRefs[0] },
     { name: "Python", level: levels[1], ref: skillRefs[1] },
@@ -115,29 +103,20 @@ function Skills() {
 
 
     return (<aside onMouseOver={() => setShadowSection(4)} onMouseOut={() => setShadowSection('')}
-        style={style} ref={setNodeRef} className={shadowSection === 4 ? "skills aside shadow-lg section" : "skills aside shadow-sm section"}>
-        <div {...listeners} {...attributes} className="section-inner">
-            <h2 className="heading">Skills</h2>
+        className={shadowSection === 4 ? "skills aside shadow-lg section" : "skills aside shadow-sm section"}>
+        <div className="section-inner">
             <div className="content">
                 <div id="skillset" className="skillset">
                     {skills.map((skill, i) => {
                         return (
                             <div key={skill.name} className="item">
                                 <h3 className="level-title">{skill.name}</h3>
-                                <div className="level-bar progress" style={{ zIndex: 10, height: '7px' }}>
+                                <div className="level-bar progress" style={{ zIndex: 10, height: '4px' }}>
                                     <span className="shining-prog progress-bar-value" ref={skillRefs[i]}
                                         style={{
-                                            // backgroundSize: '20px',
-                                            // backgroundPosition: !levelsLoaded && '0px 0px',
-                                            background: i === 0 ? 'lightblue' : 'rgb(78, 102, 109)',
-
+                                            background: i === 0 ? 'rgb(241, 211, 241)' : 'rgb(78, 102, 109)',
                                             width: skill.level + "%", borderRadius: '20px', height: '7px'
                                         }} id={skill.name}></span>
-                                    {/* <a style={{
-                                        zIndex: 10, height: '7px',
-                                        background: i === 0 ? 'linear-gradient(to right, lightblue 20%, #FFF 40%, #FFF 60%, lightblue 80%)'
-                                            : "linear-gradient(to right, rgb(78, 102, 109) 20%, #FFF 40%, #FFF 60%,rgb(78, 102, 109)  80%)",
-                                    }} className="shining-prog"></a> */}
                                 </div>
                             </div>)
                     })}

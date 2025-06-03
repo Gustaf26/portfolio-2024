@@ -10,7 +10,7 @@ import Latest from './sections/container-one/Latest';
 import Experience from './sections/container-one/Experience';
 import Header from './components/Header';
 import BasicInfo from './sections/container-two/BasicInfo';
-import Skills from './sections/container-two/Skills';
+import Skills from './sections/Skills.jsx';
 import Testimonials from './sections/container-two/Testimonials';
 import Education from './sections/container-two/Education';
 import Languages from './sections/container-two/Languages';
@@ -31,8 +31,10 @@ const App = () => {
         <Header />
         <Contact />
         <About />
+        <h1>Skills</h1>
         <Skills />
         <div className="main-container">
+          <h1>Latest Projects</h1>
           {items.length ? items.map(item => item) : null}
           {secondItems.length ? secondItems.map(item => item) : null}
           <button id="contact-me-button">
