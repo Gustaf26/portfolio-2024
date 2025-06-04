@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import StyleContext from './contexts/StyleContext';
 
@@ -17,11 +17,13 @@ import Languages from './sections/container-two/Languages';
 import Footer from './components/Footer';
 import Contact from './sections/Contact.jsx'
 
+import mail from './assets/images/email.png'
+
 
 const App = () => {
   const [shadowSection, setShadowSection] = useState('')
 
-  const [items, setItems] = useState([<Latest key="latest" />, <Experience key="experience" />])
+  const [items, setItems] = useState([<Latest key="latest" />, <hr />, <Experience key="experience" />])
   const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Testimonials key="Testimonials" />, <Education key="Education" />, <Languages key="languages" />])
 
 
@@ -39,7 +41,7 @@ const App = () => {
           {secondItems.length ? secondItems.map(item => item) : null}
           <button id="contact-me-button">
             <a href="mailto: gcs26@yahoo.com" target="">
-              CONTACT ME</a>
+              CONTACT ME</a> <img alt="send-email" src={mail} />
           </button>
         </div>
       </StyleContext.Provider>

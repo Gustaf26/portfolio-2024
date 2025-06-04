@@ -55,8 +55,9 @@ function Experience() {
                                 <h3 className="title">
                                     {exp.title}
                                     <span className="place">{exp.company}</span>
-                                    <span className="year">{exp.period}</span>
+
                                 </h3>
+                                <span className="year">{exp.period}</span>
                                 <p>{exp.description}</p>
                             </div>
                         );
