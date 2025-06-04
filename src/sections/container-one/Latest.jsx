@@ -5,14 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotate } from '@fortawesome/free-solid-svg-icons'
 
 
-const SubFeatured = ({ info, rotate }) => {
+const SubFeatured = ({ info, changeFeaturedItem }) => {
 
     const [hovered, setHovered] = useState(false)
 
-    return (<div onMouseOver={() => info.i === 0 ? setHovered(true) : null} onMouseOut={() => info.i === 0 ? setHovered(false) : null}
-        id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item' : 'item last-item'}>
+    return (<div onMouseOver={() => info.i === 0 ? setHovered(true) : null}
+        onMouseOut={() => info.i === 0 ? setHovered(false) : null}
+        onClick={(e) => { e.preventDefault(); info.i === 0 ? setHovered(true) : changeFeaturedItem(info.i) }}
+        id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured' :
+            'item last-item not-featured'}>
         <a
-            href={info.sec.more_link.href}
+            href="#"
             target="_blank">
             {info.i === 0 ? <h3 className="title">{info.sec.title}</h3> : null}
             <img className={info.i === 0 ? "featured-img img-fluid project-image rounded shadow-sm" : "img-fluid project-image rounded shadow-sm"}
@@ -75,13 +78,41 @@ function Latest() {
 
     }
 
+    const changeFeaturedItem = (index) => {
+        rotationIcon.current.classList.add('rotated')
+
+        let allProjimages = [...document.querySelectorAll('.featured-img')]
+
+        allProjimages.forEach(image => {
+            image.classList.remove('scaling')
+        })
+
+        let dummyProjects = []
+        let chosenProject = sectionProjects[index]
+
+        let otherProjects = sectionProjects.filter(proj => proj !== chosenProject)
+
+        dummyProjects = [chosenProject, ...otherProjects]
+
+        setTimeout(() => {
+            setProjects(dummyProjects)
+            allProjimages.forEach(image => {
+                image.classList.add('scaling')
+            });
+        }, 300)
+
+        setTimeout(() => {
+            rotationIcon.current.classList.remove('rotated')
+        }, 500)
+    }
+
     return (<section onMouseOver={() => { setRotating(false); setShadowSection(1) }} onMouseOut={() => { setRotating(true); setShadowSection('') }}
         className="projects section" >
         <button id="rotate-projects-button" >
             <FontAwesomeIcon ref={rotationIcon} onClick={rotate} icon={faRotate} />
         </button>
         {sectionProjects && sectionProjects.map((sec, i) => {
-            return (<SubFeatured key={'project' + i} info={{ sec, i }} />)
+            return (<SubFeatured key={'project' + i} changeFeaturedItem={changeFeaturedItem} info={{ sec, i }} />)
         })}
     </section >)
 

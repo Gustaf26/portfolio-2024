@@ -60,6 +60,7 @@ header .profile-container {
 
     @media screen and (max-width:600px) {
         width: 100%;
+        justify-content: center;
     }
 
     & h1,
@@ -95,11 +96,6 @@ header .profile-container {
     }
 }
 
-header .profile-container h2 {
-    color: var(--lightgrey);
-    font-weight: 400;
-}
-
 header ul.social {
     list-style: none;
     display: flex !important;
@@ -107,17 +103,19 @@ header ul.social {
     justify-content: end;
     padding-left: 0;
     margin: 0 auto;
-}
 
+    & img {
+        display: inline-block;
+        width: 30px;
+        height: auto;
+        margin-right: 10px;
+        border-radius: 50px;
+        filter: invert(65%);
 
-
-header ul img {
-    display: inline-block;
-    width: 30px !important;
-    height: auto;
-    margin-right: 10px;
-    border-radius: 50px;
-    filter: invert(65%);
+        @media screen and (max-width:600px) {
+            width: 25px;
+        }
+    }
 }
 
 /* GREETING SECTION */
@@ -500,8 +498,8 @@ section {
         border: none;
 
         @media screen and (max-width:600px) {
-            grid-template-rows: 550px 100px 100px;
-            margin-bottom: 14rem;
+            grid-template-rows: 550px 50px 50px;
+            margin-bottom: 18rem;
         }
 
         & #rotate-projects-button {
@@ -550,6 +548,16 @@ section {
 
         & .item {
             margin: 15px;
+
+            &.not-featured {
+                & a {
+                    @media screen and (max-width:600px) {
+                        height: 100%;
+                        box-shadow: none;
+                        border: none;
+                    }
+                }
+            }
 
             & a {
                 width: 100%;
@@ -766,17 +774,34 @@ aside {
     }
 }
 
+.lang-item {
+
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+    & div {
+        display: flex;
+        align-items: center;
+    }
+
+    & img {
+        animation: blink 1s forwards infinite;
+    }
+
+}
 
 @keyframes blink {
     0% {
-        transform: scale(1.2);
-        background-color: black;
+        transform: scale(1.05);
+        filter: invert(20%)
     }
 
     100% {
         transform: scale(0.8);
         padding: 0;
-        filter: invert(70%)
+        filter: invert(30%)
     }
 }
 

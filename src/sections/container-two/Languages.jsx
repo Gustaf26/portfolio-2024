@@ -32,13 +32,14 @@ function Languages() {
             <div className="content">
                 <ul id="language-list" className="list-unstyled">
                     {languages.map((lang, i) => {
-                        return (<li key={i + 'lang'} id={i.toString()} className="item">
-                            <span className="title"><strong>{lang.name}:</strong></span>
-                            {[...Array(lang.level)].map((element, i) => {
-                                return (<img key={i + 'star'} style={{ width: "20px", height: "20px" }}
-                                    src={starimg} />)
-                            })
-                            }
+                        return (<li key={i + 'lang'} id={i.toString()} className="lang-item">
+                            <div>
+                                <span className="title"><strong>{lang.name}:</strong></span>
+                                {[...Array(lang.level)].map((element, i) => {
+                                    return (<img key={i + 'star'} style={{ width: "20px", height: "20px" }}
+                                        src={starimg} />)
+                                })
+                                }</div>
                             <p className="level">{lang.description}<br className="visible-xs" /></p>
                         </li >)
                     })}
