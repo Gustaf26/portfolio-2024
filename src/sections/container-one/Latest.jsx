@@ -1,11 +1,11 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useRef, useEffect } from 'react'
 import projects from '../../data/data.js'
 import StyleContext from '../../contexts/StyleContext.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotate } from '@fortawesome/free-solid-svg-icons'
 
 
-const SubFeatured = ({ info }) => {
+const SubFeatured = ({ info, rotate }) => {
 
     const [hovered, setHovered] = useState(false)
 
@@ -14,7 +14,7 @@ const SubFeatured = ({ info }) => {
         <a
             href={info.sec.more_link.href}
             target="_blank">
-            {hovered ? <h3 className="title">{info.sec.title}</h3> : null}
+            {info.i === 0 ? <h3 className="title">{info.sec.title}</h3> : null}
             <img className={info.i === 0 ? "featured-img img-fluid project-image rounded shadow-sm" : "img-fluid project-image rounded shadow-sm"}
                 src={info.sec.image} alt="project name" />
         </a>
@@ -35,10 +35,11 @@ function Latest() {
     const { shadowSection, setShadowSection } = useContext(StyleContext)
     const [sectionProjects, setProjects] = useState(projects)
     const [rotating, setRotating] = useState(true)
+    const rotationIcon = useRef()
 
     useEffect(() => {
 
-        let rotation = setInterval(() => { rotate('') }, 5000);
+        let rotation = setInterval(() => { rotate('') }, 8000);
         if (!rotating) clearInterval(rotation)
 
         return function () { clearInterval(rotation) }
@@ -48,6 +49,7 @@ function Latest() {
     const rotate = (e) => {
 
         if (e) e.target.classList.add('rotated')
+        else { rotationIcon.current.classList.add('rotated') }
 
         let allProjimages = [...document.querySelectorAll('.featured-img')]
 
@@ -60,8 +62,6 @@ function Latest() {
             i === 3 ? dummyProjects[0] = project : dummyProjects[i + 1] = project
         })
 
-
-
         setTimeout(() => {
             setProjects(dummyProjects)
             allProjimages.forEach(image => {
@@ -69,17 +69,16 @@ function Latest() {
             });
         }, 300)
 
-        if (e) {
-            setTimeout(() => {
-                e.target.classList.remove('rotated')
-            }, 500)
-        }
+        setTimeout(() => {
+            e ? e.target.classList.remove('rotated') : rotationIcon.current.classList.remove('rotated')
+        }, 500)
+
     }
 
     return (<section onMouseOver={() => { setRotating(false); setShadowSection(1) }} onMouseOut={() => { setRotating(true); setShadowSection('') }}
         className="projects section" >
         <button id="rotate-projects-button" >
-            <FontAwesomeIcon onClick={rotate} icon={faRotate} />
+            <FontAwesomeIcon ref={rotationIcon} onClick={rotate} icon={faRotate} />
         </button>
         {sectionProjects && sectionProjects.map((sec, i) => {
             return (<SubFeatured key={'project' + i} info={{ sec, i }} />)
