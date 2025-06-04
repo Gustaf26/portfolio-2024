@@ -11,7 +11,7 @@ const SubFeatured = ({ info, changeFeaturedItem }) => {
 
     return (<div onMouseOver={() => info.i === 0 ? setHovered(true) : null}
         onMouseOut={() => info.i === 0 ? setHovered(false) : null}
-        onClick={(e) => { e.preventDefault(); info.i === 0 ? setHovered(true) : changeFeaturedItem(info.i) }}
+        onClick={(e) => { e.preventDefault(); info.i === 0 ? setHovered(!hovered) : changeFeaturedItem(info.i) }}
         id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured' :
             'item last-item not-featured'}>
         <a
@@ -48,6 +48,13 @@ function Latest() {
         return function () { clearInterval(rotation) }
 
     }, [sectionProjects, rotating])
+
+    const scrollToFeatured = () => {
+        document.getElementById('item-1').scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        })
+    }
 
     const rotate = (e) => {
 
@@ -102,8 +109,10 @@ function Latest() {
         }, 300)
 
         setTimeout(() => {
-            rotationIcon.current.classList.remove('rotated')
+            rotationIcon.current.classList.remove('rotated');
+            scrollToFeatured()
         }, 500)
+
     }
 
     return (<section onMouseOver={() => { setRotating(false); setShadowSection(1) }} onMouseOut={() => { setRotating(true); setShadowSection('') }}
