@@ -456,7 +456,7 @@ section .featured {
         left: 0;
         top: 0;
         padding: 20px;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.9);
         right: 0;
         color: rgb(241, 211, 241);
         text-align: center;
@@ -466,8 +466,8 @@ section .featured {
     .featured-desc {
         position: absolute;
         bottom: 0px;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: black;
         width: 100%;
         font-weight: 300;
         text-align: center;
@@ -476,11 +476,11 @@ section .featured {
         animation: move-up 0.5s linear forwards;
 
         & a {
-            color: white;
+            color: black;
             display: block;
             width: 130px !important;
             margin: 10px auto;
-            border: 1px solid white !important;
+            border: 1px solid black !important;
 
             box-shadow: none !important;
 
@@ -962,18 +962,22 @@ footer {
                     width: 250px;
                     height: 300px;
                     object-fit: cover;
-
                 }
             }
 
             & .featured {
                 grid-column: 1 / 4;
                 grid-row: 1/2;
+                background-color: rgba(0, 0, 0, 0.8);
 
                 & img {
                     width: 50%;
                     height: 500px;
                     filter: none;
+
+                    &.scaling {
+                        animation: scale 2s linear forwards;
+                    }
                 }
 
                 & .featured-info {
@@ -983,6 +987,10 @@ footer {
                     justify-content: center;
                     align-items: center;
                     flex-direction: column;
+                }
+
+                & .title {
+                    z-index: 10;
                 }
             }
 
@@ -1026,6 +1034,18 @@ footer {
 
         100% {
             transform: rotate(360deg);
+        }
+    }
+
+    @keyframes scale {
+        0% {
+            transform: scale(0.25);
+            filter: grayscale(100%) blur(1px);
+        }
+
+        100% {
+            transform: scale(1);
+            filter: grayscale(0%) blur(0px) brightness(120%);
         }
     }
 }
