@@ -13,7 +13,6 @@ function About() {
     useEffect(() => {
 
         document.addEventListener('scroll', (e) => {
-            console.log(window.pageYOffset) - (document.clientTop)
             setVertical(e.target.offsetY)
         })
     }, [])

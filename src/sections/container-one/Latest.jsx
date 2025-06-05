@@ -1,34 +1,47 @@
-import { useState, useContext, useRef, useEffect } from 'react'
+import { useState, useContext, useRef, useEffect, useLayoutEffect } from 'react'
 import projects from '../../data/data.js'
 import StyleContext from '../../contexts/StyleContext.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotate } from '@fortawesome/free-solid-svg-icons'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { faUpLong } from '@fortawesome/free-solid-svg-icons'
 
 
 const SubFeatured = ({ info, changeFeaturedItem }) => {
 
     const [hovered, setHovered] = useState(false)
 
-    return (<div onMouseOver={() => setHovered(true)}
+
+    useEffect(() => {
+
+        info.project.showingDesc ? setHovered(true) : setHovered(false)
+
+    }, [info.project.showingDesc])
+
+    return (<div onMouseOver={() => !info.project.showingDesc ? setHovered(true) : setHovered(hovered)}
         onMouseOut={() => setHovered(false)}
-        onClick={(e) => { e.preventDefault(); info.i === 0 ? setHovered(!hovered) : changeFeaturedItem(info.i) }}
         id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured' :
             'item last-item not-featured'}>
-        {info.i === 0 || hovered ? <h3 className="title">{info.sec.title}</h3> : null}
+        {info.i === 0 ? <h3 className="title">{info.project.title}</h3> : null}
         <a className="featured-img-container"
             href="#"
-            target="_blank">
+            target="_blank" onClick={(e) => e.preventDefault()}>
             <img className={info.i === 0 ? "featured-img img-fluid project-image rounded shadow-sm" : "img-fluid project-image rounded shadow-sm"}
-                src={info.sec.image} alt="project name" />
+                src={info.project.image} alt="project name" />
+            {info.i !== 0 && hovered ? <div id="more-info-button"><a href="#" onClick={(e) => { e.preventDefault(); changeFeaturedItem(info.i) }}>More info</a></div> : null}
         </a>
-        {info.i === 0 ? <div className="featured-desc">
-            <p>{info.sec.description}</p>
+        {info?.i === 0 && info.project.showingDesc === true && hovered ? < div className="featured-desc animated">
+            <FontAwesomeIcon onClick={(e) => { e.stopPropagation(); setHovered(false) }} icon={faClose} />
+            <p>{info.project.description}</p>
             <p><a
-                href={info.sec.more_link.href}
+                href={info.project.more_link?.href}
                 target="">See Project</a>
             </p>
-        </div> : null}
-    </div>
+        </div> : info.i === 0 && !hovered ? (
+            < div className="featured-desc"><FontAwesomeIcon className="arrow-up" onClick={(e) => { e.stopPropagation(); setHovered(true) }} icon={faUpLong} /></div>)
+            : null
+        }
+    </div >
     )
 }
 
@@ -56,9 +69,15 @@ function Latest() {
         })
     }
 
+    const setDescriptionShowing = (dummyProjects) => {
+
+        let allProjs = dummyProjects.map((proj, i) => { (i === 0 ? proj.showingDesc = true : proj.showingDesc = false); return proj })
+        setProjects(allProjs)
+    }
+
     const rotate = (e) => {
 
-        if (e) e.target.classList.add('rotated')
+        if (e) { e.target.classList.add('rotated'); scrollToFeatured() }
         else { rotationIcon.current.classList.add('rotated') }
 
         let allProjimages = [...document.querySelectorAll('.featured-img')]
@@ -81,6 +100,7 @@ function Latest() {
 
         setTimeout(() => {
             e ? e.target.classList.remove('rotated') : rotationIcon.current.classList.remove('rotated')
+            setDescriptionShowing(dummyProjects)
         }, 500)
 
     }
@@ -111,6 +131,7 @@ function Latest() {
         setTimeout(() => {
             rotationIcon.current.classList.remove('rotated');
             scrollToFeatured()
+            setDescriptionShowing(dummyProjects)
         }, 500)
 
     }
@@ -120,8 +141,8 @@ function Latest() {
         <button id="rotate-projects-button" >
             <FontAwesomeIcon ref={rotationIcon} onClick={rotate} icon={faRotate} />
         </button>
-        {sectionProjects && sectionProjects.map((sec, i) => {
-            return (<SubFeatured key={'project' + i} changeFeaturedItem={changeFeaturedItem} info={{ sec, i }} />)
+        {sectionProjects && sectionProjects.map((project, i) => {
+            return (<SubFeatured key={'project' + i} changeFeaturedItem={changeFeaturedItem} info={{ project, i }} />)
         })}
     </section >)
 
