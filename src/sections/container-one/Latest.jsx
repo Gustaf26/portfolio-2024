@@ -14,10 +14,10 @@ const SubFeatured = ({ info, changeFeaturedItem }) => {
         onClick={(e) => { e.preventDefault(); info.i === 0 ? setHovered(!hovered) : changeFeaturedItem(info.i) }}
         id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured' :
             'item last-item not-featured'}>
-        <a
+        {info.i === 0 ? <h3 className="title">{info.sec.title}</h3> : null}
+        <a className="featured-img-container"
             href="#"
             target="_blank">
-            {info.i === 0 ? <h3 className="title">{info.sec.title}</h3> : null}
             <img className={info.i === 0 ? "featured-img img-fluid project-image rounded shadow-sm" : "img-fluid project-image rounded shadow-sm"}
                 src={info.sec.image} alt="project name" />
         </a>

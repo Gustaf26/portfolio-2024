@@ -285,7 +285,7 @@ header #contact img {
     height: auto;
     margin-right: 10px;
     border-radius: 50px;
-    margin-top: 10px;
+    margin: 10px 0px 0px 0px;
 }
 
 /* ALL IMAGES */
@@ -351,8 +351,6 @@ img {
             font-size: 0.85em;
         }
     }
-
-
 }
 
 @keyframes show {
@@ -605,13 +603,14 @@ section {
             grid-row: 1/2;
             background-color: white;
             position: relative;
-            overflow-y: hidden;
+            overflow: hidden;
             border: 0.5px solid rgb(241, 211, 241);
             border-radius: 5px;
 
-            & a {
+            & a.featured-img-container {
                 background-color: white;
                 border: 0.5px solid rgb(241, 211, 241);
+                animation: scale 2s linear forwards;
             }
 
             & h3 {
@@ -619,9 +618,10 @@ section {
                 left: 0;
                 top: 0;
                 padding: 20px;
-                background-color: rgb(233, 155, 233);
+                background-color: rgb(235, 190, 235);
+
                 right: 0;
-                color: white;
+                color: rgb(62, 9, 62);
                 text-align: center;
                 animation: move-down 0.5s linear forwards;
             }
@@ -799,6 +799,7 @@ section {
     100% {
         transform: scale(1);
         filter: grayscale(0%) blur(0px) brightness(120%);
+        width: 100%;
     }
 }
 
