@@ -569,6 +569,21 @@ section {
 
         & .item {
             margin: 15px;
+            position: relative;
+            overflow: hidden;
+
+            & h3 {
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 20px;
+                background-color: rgb(235, 190, 235);
+                z-index: 10;
+                right: 0;
+                color: rgb(62, 9, 62);
+                text-align: center;
+                animation: move-down 0.5s linear forwards;
+            }
 
             &.not-featured {
                 & a {
@@ -578,6 +593,7 @@ section {
                         border: none;
                     }
                 }
+
             }
 
             & a {
@@ -798,7 +814,7 @@ section {
 
     100% {
         transform: scale(1);
-        filter: grayscale(0%) blur(0px) brightness(120%);
+        filter: grayscale(0%) blur(0px) brightness(100%);
         width: 100%;
     }
 }

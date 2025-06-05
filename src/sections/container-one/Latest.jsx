@@ -9,19 +9,19 @@ const SubFeatured = ({ info, changeFeaturedItem }) => {
 
     const [hovered, setHovered] = useState(false)
 
-    return (<div onMouseOver={() => info.i === 0 ? setHovered(true) : null}
-        onMouseOut={() => info.i === 0 ? setHovered(false) : null}
+    return (<div onMouseOver={() => setHovered(true)}
+        onMouseOut={() => setHovered(false)}
         onClick={(e) => { e.preventDefault(); info.i === 0 ? setHovered(!hovered) : changeFeaturedItem(info.i) }}
         id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured' :
             'item last-item not-featured'}>
-        {info.i === 0 ? <h3 className="title">{info.sec.title}</h3> : null}
+        {info.i === 0 || hovered ? <h3 className="title">{info.sec.title}</h3> : null}
         <a className="featured-img-container"
             href="#"
             target="_blank">
             <img className={info.i === 0 ? "featured-img img-fluid project-image rounded shadow-sm" : "img-fluid project-image rounded shadow-sm"}
                 src={info.sec.image} alt="project name" />
         </a>
-        {hovered ? <div className="featured-desc">
+        {info.i === 0 ? <div className="featured-desc">
             <p>{info.sec.description}</p>
             <p><a
                 href={info.sec.more_link.href}
