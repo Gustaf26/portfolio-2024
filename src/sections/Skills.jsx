@@ -109,7 +109,7 @@ function Skills() {
                 <div id="skillset" className="skillset">
                     {skills.map((skill, i) => {
                         return (
-                            <div key={skill.name} className="item">
+                            <div key={skill.name}>
                                 <h3 className="level-title">{skill.name}</h3>
                                 <div className="level-bar progress" style={{ zIndex: 10, height: '4px' }}>
                                     <span className="shining-prog progress-bar-value" ref={skillRefs[i]}

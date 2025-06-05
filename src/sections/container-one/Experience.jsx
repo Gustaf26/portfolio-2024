@@ -53,7 +53,7 @@ function Experience() {
                         return (
                             <div key={exp.company} className="item">
                                 <h3 className="title">
-                                    {exp.title}
+                                    <span className="position">{exp.title}</span>
                                     <span className="place">{exp.company}</span>
 
                                 </h3>

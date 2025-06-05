@@ -16,13 +16,25 @@ body {
         font-size: xx-large;
     }
 
+    & p h2 {
+        font-size: larger;
+        text-align: center;
+
+        @media screen and (min-width:600px) {
+            font-size: x-large;
+
+        }
+    }
+
     & h2 {
+        text-align: left;
         font-size: larger;
     }
 
-    & h3 {
-        font-size: large;
-    }
+}
+
+& h3 {
+    font-size: large;
 }
 
 
@@ -256,7 +268,6 @@ header ul.social {
         width: 30px;
         height: 20px;
         object-fit: cover;
-        filter: invert(60%);
     }
 
     &:hover {
@@ -354,10 +365,6 @@ img {
     }
 }
 
-h1 {
-    text-align: center;
-    padding: 10px;
-}
 
 /* SECTIONS */
 
@@ -368,7 +375,6 @@ h1 {
     width: 100vw;
     height: fit-content;
     border-top: 0.5px solid rgb(229, 226, 226);
-
 }
 
 
@@ -425,6 +431,16 @@ section {
             color: rgb(107, 142, 169);
             margin: 10px;
             font-size: medium;
+        }
+
+        & .level-title::first-letter {
+            text-transform: capitalize;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            /* Different font family */
+            font-size: 22px;
+            /* Optional: Make it larger */
+            color: rgb(202, 104, 202);
+            /* Optional: Change color */
         }
 
 
@@ -536,6 +552,8 @@ section {
 
                 &.rotated {
                     animation: rotate 0.5s linear forwards;
+                    color: rgb(234, 202, 234);
+                    border: 2px solid rgb(234, 202, 234);
                 }
 
                 &:hover {
@@ -588,11 +606,12 @@ section {
             background-color: white;
             position: relative;
             overflow-y: hidden;
-            border: 3px ridge white;
+            border: 0.5px solid rgb(241, 211, 241);
             border-radius: 5px;
 
             & a {
                 background-color: white;
+                border: 0.5px solid rgb(241, 211, 241);
             }
 
             & h3 {
@@ -600,7 +619,7 @@ section {
                 left: 0;
                 top: 0;
                 padding: 20px;
-                background-color: rgba(0, 0, 0, 0.9);
+                background-color: rgb(233, 155, 233);
                 right: 0;
                 color: white;
                 text-align: center;
@@ -630,6 +649,16 @@ section {
                 animation: show 1s linear forwards;
                 animation: move-up 0.5s linear forwards;
                 filter: contrast(120%);
+
+                &::first-letter {
+                    text-transform: capitalize;
+                    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                    /* Different font family */
+                    font-size: 26px;
+                    /* Optional: Make it larger */
+                    color: rgb(202, 104, 202);
+                    /* Optional: Change color */
+                }
 
                 & a {
                     display: block;
@@ -695,19 +724,27 @@ section {
         max-width: 700px;
         margin-top: 40px;
 
-        .item {
+        & h2 {
+            margin-left: 0px;
+        }
 
-            & h3 {
+        & .content {
+
+            & .title {
                 width: 90%;
                 display: flex;
                 justify-content: flex-start;
-                color: rgb(107, 142, 169);
                 font-size: medium;
 
                 & span {
                     font-weight: 200;
-                    color: var(--lightgrey);
                     margin-left: 7px;
+
+                    &.position {
+                        font-weight: bolder;
+                        margin-left: 0px;
+                        color: rgb(142, 56, 142);
+                    }
                 }
             }
         }
@@ -870,6 +907,17 @@ footer {
 
         & ul.social {
             justify-content: center;
+        }
+    }
+
+    .skills {
+        width: 90%;
+
+        & .skillset {
+
+            & h3.level-title {
+                font-size: 0.95em !important;
+            }
         }
     }
 

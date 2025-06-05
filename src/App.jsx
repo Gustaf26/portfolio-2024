@@ -33,10 +33,10 @@ const App = () => {
         <Header />
         <Contact />
         <About />
-        <h1>Skills</h1>
+        <p><h2>Skills</h2></p>
         <Skills />
         <div className="main-container">
-          <h1>Latest Projects</h1>
+          <p><h2>Latest Projects</h2></p>
           {items.length ? items.map(item => item) : null}
           {secondItems.length ? secondItems.map(item => item) : null}
           <button id="contact-me-button">
