@@ -508,7 +508,7 @@ section {
         width: 100%;
         height: fit-content;
         grid-template-rows: 550px 200px 200px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 0.75fr 1fr 0.75fr 1fr 0.75fr;
         margin: 0 auto 3rem auto;
         border: none;
         padding-bottom: 16rem;
@@ -587,11 +587,11 @@ section {
 
             &.not-featured {
                 & a {
-                    @media screen and (max-width:600px) {
-                        height: 100%;
-                        box-shadow: none;
-                        border: none;
-                    }
+
+                    height: 100%;
+                    box-shadow: none;
+                    border: none;
+
                 }
 
                 & #more-info-button {
@@ -1051,6 +1051,11 @@ footer {
             height: fit-content;
             margin-bottom: 3rem;
             grid-template-rows: 550px 350px 200px 200px;
+            grid-template-columns: 1fr 1fr 0.5fr 1fr 1fr;
+
+            & #item-1 {
+                grid-column: 1/6;
+            }
 
             & #item-2 {
                 grid-column: 4/6;
