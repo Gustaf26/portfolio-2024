@@ -507,8 +507,8 @@ section {
         display: grid;
         width: 100%;
         height: fit-content;
-        grid-template-rows: 550px 200px 200px;
-        grid-template-columns: 0.75fr 1fr 0.75fr 1fr 0.75fr;
+        grid-template-rows: 550px 400px 400px;
+        grid-template-columns: 0.75fr 1fr 0.75fr 0.25fr 0.75fr 1fr 0.75fr;
         margin: 0 auto 3rem auto;
         border: none;
         padding-bottom: 16rem;
@@ -520,11 +520,11 @@ section {
         }
 
         & #rotate-projects-button {
-            height: 40px;
+            height: 100%;
             width: 40px;
-            grid-column: 3/4;
+            grid-column: 4/5;
             grid-row: 2/3;
-            align-self: center;
+            /* align-self: center; */
             justify-self: center;
             display: flex;
             justify-content: center;
@@ -537,8 +537,8 @@ section {
 
             & svg {
                 text-align: center;
-                height: 40px;
-                width: 40px;
+                height: 20px;
+                width: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -639,7 +639,7 @@ section {
         }
 
         & .featured {
-            grid-column: 2 / 5;
+            grid-column: 3/ 6;
             grid-row: 1/2;
             background-color: white;
             position: relative;
@@ -761,6 +761,7 @@ section {
 
         & .middle-item {
             grid-row: 2/3;
+            align-self: center;
         }
 
         & .last-item {
@@ -768,15 +769,15 @@ section {
         }
 
         & #item-2 {
-            grid-column: 4/5;
+            grid-column: 5/7;
         }
 
         & #item-3 {
-            grid-column: 3/4;
+            grid-column: 3/6;
         }
 
         & #item-4 {
-            grid-column: 2/3;
+            grid-column: 2/4;
         }
     }
 
@@ -994,18 +995,20 @@ footer {
         & section.projects {
             padding-bottom: 0;
             height: fit-content;
-            margin-bottom: 3rem;
+            /* margin-bottom: 3rem; */
             grid-template-rows: 550px 350px 200px 200px;
+            grid-template-columns: 1fr 0.35fr 1fr;
 
             & .item {
                 margin: 5px !important;
             }
 
             & #rotate-projects-button {
+                grid-column: 2/3;
 
                 & svg {
-                    height: 20px;
-                    width: 20px;
+                    height: 10px;
+                    width: 10px;
                 }
             }
 
@@ -1014,16 +1017,16 @@ footer {
             }
 
             & #item-2 {
-                grid-column: 4/6;
+                grid-column: 3/4;
             }
 
             & #item-3 {
-                grid-column: 2/5;
+                grid-column: 1/4;
                 grid-row: 3/4;
             }
 
             & #item-4 {
-                grid-column: 1/3;
+                grid-column: 1/2;
             }
         }
     }
@@ -1053,7 +1056,12 @@ footer {
             grid-template-rows: 550px 350px 200px 200px;
             grid-template-columns: 1fr 1fr 0.5fr 1fr 1fr;
 
-            & #item-1 {
+            & #rotate-projects-button {
+                grid-column: 3/4;
+                grid-row: 2/3;
+            }
+
+            & .featured {
                 grid-column: 1/6;
             }
 
