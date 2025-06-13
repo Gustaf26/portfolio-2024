@@ -34,19 +34,25 @@ const App = () => {
         <Header />
         <Contact />
         <About />
-        <GithubContextProv>
-          <GithubData />
-        </GithubContextProv>
-
-        <p><h2>Skills</h2></p>
-        <Skills />
+        <div id="git-and-skills-section">
+          <div id="skills-container">
+            <h2>Skills</h2>
+            <Skills />
+          </div>
+          <GithubContextProv>
+            <GithubData />
+          </GithubContextProv>
+        </div>
         <div className="main-container">
-          <p><h2>Latest Projects</h2></p>
+          <div>
+            <h2>Latest Projects</h2>
+          </div>
           {items.length ? items.map(item => item) : null}
           {secondItems.length ? secondItems.map(item => item) : null}
           <button id="contact-me-button">
             <a href="mailto: gcs26@yahoo.com" target="">
-              CONTACT ME</a> <img alt="send-email" src={mail} />
+              CONTACT ME</a>
+            <img alt="send-email" src={mail} />
           </button>
         </div>
       </StyleContext.Provider>

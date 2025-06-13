@@ -300,6 +300,145 @@ img {
 
 /* LAYOUT */
 
+#git-and-skills-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+
+    & #skills-container {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    & .skills {
+
+        width: 60%;
+        max-width: 600px;
+
+        & .skillset {
+
+
+            & h3 {
+                width: fit-content;
+                color: rgb(107, 142, 169);
+                margin: 10px;
+                font-size: medium;
+            }
+
+            & .level-title::first-letter {
+                text-transform: capitalize;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                /* Different font family */
+                font-size: 22px;
+                /* Optional: Make it larger */
+                color: rgb(202, 104, 202);
+                /* Optional: Change color */
+            }
+
+
+            & .progress {
+                /* height: 15px; */
+                width: 95%;
+                margin: 0 auto;
+                position: relative;
+                margin: 10px 10px;
+                background: whitesmoke;
+                border-radius: 25px;
+                padding: 0;
+                z-index: 10;
+            }
+
+            & span.progress-bar-value {
+                display: block;
+                height: 100%;
+                border-radius: 20px;
+                background-color: rgb(65, 194, 100);
+                position: absolute;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                z-index: 10;
+            }
+
+            & h3 {
+                width: fit-content;
+                color: rgb(107, 142, 169);
+                font-size: medium;
+            }
+
+            & .progress {
+                margin: 10px auto;
+                background-size: 20px;
+
+            }
+        }
+    }
+}
+
+/* SPINNERS GITHUB */
+
+#github-data-container {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+    position: relative;
+    animation: rotate 1s linear forwards;
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid rgb(233, 155, 233);
+    animation: prixClipFix 2s linear infinite;
+}
+
+.loader::after {
+    inset: 8px;
+    transform: rotate3d(90, 90, 0, 180deg);
+    border-color: rgb(202, 104, 202);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    75%,
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+}
+
 .about {
 
     width: calc(100vw - 20px);
@@ -424,69 +563,6 @@ section {
     margin: 0px auto 30px auto;
 }
 
-.skills {
-
-    width: 60%;
-    max-width: 600px;
-
-    & .skillset {
-
-
-        & h3 {
-            width: fit-content;
-            color: rgb(107, 142, 169);
-            margin: 10px;
-            font-size: medium;
-        }
-
-        & .level-title::first-letter {
-            text-transform: capitalize;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            /* Different font family */
-            font-size: 22px;
-            /* Optional: Make it larger */
-            color: rgb(202, 104, 202);
-            /* Optional: Change color */
-        }
-
-
-        & .progress {
-            /* height: 15px; */
-            width: 95%;
-            margin: 0 auto;
-            position: relative;
-            margin: 10px 10px;
-            background: whitesmoke;
-            border-radius: 25px;
-            padding: 0;
-            z-index: 10;
-        }
-
-        & span.progress-bar-value {
-            display: block;
-            height: 100%;
-            border-radius: 20px;
-            background-color: rgb(65, 194, 100);
-            position: absolute;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 10;
-        }
-
-        & h3 {
-            width: fit-content;
-            color: rgb(107, 142, 169);
-            font-size: medium;
-        }
-
-        & .progress {
-            margin: 10px auto;
-            background-size: 20px;
-
-        }
-    }
-}
 
 .pers-info {
     ul {

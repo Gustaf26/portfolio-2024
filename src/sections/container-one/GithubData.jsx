@@ -6,12 +6,15 @@ import { GithubContext } from '../../contexts/GithubContext.jsx'
 
 const GithubData = () => {
 
-    // const { data } = useContext(GithubContext)
+    const { gitUserData, gitRepoEvents } = useContext(GithubContext)
 
-    // console.log(data)
+    console.log(gitUserData, gitRepoEvents)
 
-    return (<div>
-        {/* {data} */}
+    return (<div id="github-data-container">
+        <span class="loader"></span>
+        <span class="loader"></span>
+        <span class="loader"></span>
+        <span class="loader"></span>
     </div>)
 }
 
