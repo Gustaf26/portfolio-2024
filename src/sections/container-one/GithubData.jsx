@@ -11,8 +11,8 @@ const GithubData = () => {
     console.log(gitUserData, gitRepoEvents)
 
     return (<div id="github-data-container">
-        <span class="loader"></span>
-        <span class="loader"></span>
+        <span class="loader">Repositories</span>
+        <span class="loader">Commits</span>
         <span class="loader"></span>
         <span class="loader"></span>
     </div>)

@@ -39,9 +39,12 @@ const App = () => {
             <h2>Skills</h2>
             <Skills />
           </div>
-          <GithubContextProv>
-            <GithubData />
-          </GithubContextProv>
+          <div id="git-data-supra-container">
+            <GithubContextProv>
+              <h2>Stats</h2>
+              <GithubData />
+            </GithubContextProv>
+          </div>
         </div>
         <div className="main-container">
           <div>
