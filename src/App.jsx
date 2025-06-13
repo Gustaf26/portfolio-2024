@@ -14,11 +14,13 @@ import Skills from './sections/Skills.jsx';
 import Testimonials from './sections/container-two/Testimonials';
 import Education from './sections/container-two/Education';
 import Languages from './sections/container-two/Languages';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Contact from './sections/Contact.jsx'
 
-import mail from './assets/images/email.png'
+import { GithubContextProv } from './contexts/GithubContext.jsx';
 
+import mail from './assets/images/email.png'
+import GithubData from './sections/container-one/GithubData.jsx';
 
 const App = () => {
   const [shadowSection, setShadowSection] = useState('')
@@ -26,13 +28,16 @@ const App = () => {
   const [items, setItems] = useState([<Latest key="latest" />, <hr />, <Experience key="experience" />])
   const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Testimonials key="Testimonials" />, <Education key="Education" />, <Languages key="languages" />])
 
-
   return (
     <div style={{ height: 'fit-content' }}>
       <StyleContext.Provider value={{ shadowSection, setShadowSection }}>
         <Header />
         <Contact />
         <About />
+        <GithubContextProv>
+          <GithubData />
+        </GithubContextProv>
+
         <p><h2>Skills</h2></p>
         <Skills />
         <div className="main-container">
