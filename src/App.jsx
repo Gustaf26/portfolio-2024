@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import StyleContext from './contexts/StyleContext';
 
@@ -24,9 +24,46 @@ import GithubData from './sections/container-one/GithubData.jsx';
 
 const App = () => {
   const [shadowSection, setShadowSection] = useState('')
-
-  // const [items, setItems] = useState([<Latest key="latest" />, <hr />, <Experience key="experience" />])
   const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Testimonials key="Testimonials" />, <Education key="Education" />, <Languages key="languages" />])
+
+  // const skillsAndGitData = useRef()
+  // const newScroll = useRef(1)
+  // const lastScroll = useRef(0)
+  // const direction = useRef('down')
+
+  // const [opacityAnimation, setOpacityAnimation] = useState(false)
+
+  // const checkAnimationChange = (lastScroll, newScroll, direction) => {
+
+  //   let deviceHeight = window.innerHeight
+  //   let percentRate = (deviceHeight / newScroll) * 100
+
+  //   console.log(percentRate)
+
+  //   if ((newScroll > 1950 && direction === 'down') || (newScroll < 3150 && direction === 'up')) setOpacityAnimation(true)
+  //   else setOpacityAnimation(false)
+  // }
+
+  // useEffect(() => {
+
+  //   window.addEventListener('scroll', (e) => {
+  //     if (lastScroll.current < newScroll.current) {
+  //       direction.current = 'down'
+  //       lastScroll.current = newScroll.current
+  //       newScroll.current = window.pageYOffset
+  //       checkAnimationChange(lastScroll.current, newScroll.current, direction.current)
+  //       return
+  //     }
+  //     else if (lastScroll.current > newScroll.current) {
+  //       direction.current = 'up'
+  //       lastScroll.current = newScroll.current
+  //       newScroll.current = window.pageYOffset
+  //       checkAnimationChange(lastScroll.current, newScroll.current, direction.current)
+  //       return
+  //     }
+  //   })
+
+  // }, [])
 
   return (
     <div style={{ height: 'fit-content' }}>
@@ -40,7 +77,9 @@ const App = () => {
           </div>
           <Latest />
           <hr />
-          <div id="git-and-skills-section">
+          <div
+            // className={opacityAnimation ? 'opacity-animated' : ''} 
+            id="git-and-skills-section">
             <div id="skills-container">
               <h2>Skills</h2>
               <Skills />

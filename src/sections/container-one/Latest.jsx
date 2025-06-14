@@ -28,7 +28,11 @@ const SubFeatured = ({ info, changeFeaturedItem }) => {
             target="_blank" onClick={(e) => e.preventDefault()}>
             <img className={info.i === 0 ? "featured-img img-fluid project-image rounded shadow-sm" : "img-fluid project-image rounded shadow-sm"}
                 src={info.project.image} alt="project name" />
-            {info.i !== 0 && hovered ? <div id="more-info-button"><a href="#" onClick={(e) => { e.preventDefault(); changeFeaturedItem(info.i) }}>More info</a></div> : null}
+
+            {info.i !== 0 ? <div id="more-info-button">
+                <a href="#" onClick={(e) => { e.preventDefault(); changeFeaturedItem(info.i) }}><span>More info</span></a>
+            </div> : null}
+
         </a>
         {info?.i === 0 && info.project.showingDesc === true && hovered ? < div className="featured-desc animated">
             <FontAwesomeIcon onClick={(e) => { e.stopPropagation(); setHovered(false) }} icon={faClose} />
@@ -38,7 +42,8 @@ const SubFeatured = ({ info, changeFeaturedItem }) => {
                 target="">See Project</a>
             </p>
         </div> : info.i === 0 && !hovered ? (
-            < div className="featured-desc"><FontAwesomeIcon className="arrow-up" onClick={(e) => { e.stopPropagation(); setHovered(true) }} icon={faUpLong} /></div>)
+            < div className="featured-desc"><FontAwesomeIcon className="arrow-up"
+                onClick={(e) => { e.stopPropagation(); setHovered(true) }} icon={faUpLong} /></div>)
             : null
         }
     </div >

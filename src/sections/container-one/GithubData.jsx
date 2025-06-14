@@ -1,11 +1,11 @@
 
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect, useRef } from 'react'
 
 import { GithubContext } from '../../contexts/GithubContext.jsx'
 
-const DataWheel = (data) => {
-    return (<span class="loader">Repositories</span>)
-}
+// const DataWheel = (data) => {
+//     return (<span class="loader">Repositories</span>)
+// }
 
 const GithubData = () => {
 
@@ -29,7 +29,6 @@ const GithubData = () => {
 
     useEffect(() => {
 
-
         if (gitRepoEvents) {
 
             let events = gitRepoEvents.data
@@ -52,7 +51,7 @@ const GithubData = () => {
     return (<div id="github-data-container">
         <div className="loader-container">
             <h6>Repositories</h6>
-            <span className="loader"><span>{repos && repos}</span></span></div>
+            <span className="loader repos-loader"><span>{repos && repos}</span></span></div>
         <div className="loader-container">
             <h6>Commits On This Page</h6>
             <span className="loader"><span>{commits && commits}</span></span></div>
