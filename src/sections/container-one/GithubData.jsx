@@ -52,10 +52,10 @@ const GithubData = () => {
     return (<div id="github-data-container">
         <div className="loader-container">
             <h6>Repositories</h6>
-            <span className="loader">{repos && repos}</span></div>
+            <span className="loader"><span>{repos && repos}</span></span></div>
         <div className="loader-container">
-            <h6>Commits In This Page</h6>
-            <span className="loader">{commits && commits}</span></div>
+            <h6>Commits On This Page</h6>
+            <span className="loader"><span>{commits && commits}</span></span></div>
         <div className="loader-container">
             <span className="loader"></span></div>
         <div className="loader-container">

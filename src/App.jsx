@@ -25,7 +25,7 @@ import GithubData from './sections/container-one/GithubData.jsx';
 const App = () => {
   const [shadowSection, setShadowSection] = useState('')
 
-  const [items, setItems] = useState([<Latest key="latest" />, <hr />, <Experience key="experience" />])
+  // const [items, setItems] = useState([<Latest key="latest" />, <hr />, <Experience key="experience" />])
   const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Testimonials key="Testimonials" />, <Education key="Education" />, <Languages key="languages" />])
 
   return (
@@ -34,23 +34,24 @@ const App = () => {
         <Header />
         <Contact />
         <About />
-        <div id="git-and-skills-section">
-          <div id="skills-container">
-            <h2>Skills</h2>
-            <Skills />
-          </div>
-          <div id="git-data-supra-container">
-            <GithubContextProv>
-              <h2>Stats</h2>
-              <GithubData />
-            </GithubContextProv>
-          </div>
-        </div>
         <div className="main-container">
           <div>
             <h2>Latest Projects</h2>
           </div>
-          {items.length ? items.map(item => item) : null}
+          <Latest />
+          <hr />
+          <div id="git-and-skills-section">
+            <div id="skills-container">
+              <h2>Skills</h2>
+              <Skills />
+            </div>
+            <div id="git-data-supra-container">
+              <GithubContextProv>
+                <GithubData />
+              </GithubContextProv>
+            </div>
+          </div>
+          <Experience key="experience" />
           {secondItems.length ? secondItems.map(item => item) : null}
           <button id="contact-me-button">
             <a href="mailto: gcs26@yahoo.com" target="">
