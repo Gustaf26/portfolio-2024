@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotate } from '@fortawesome/free-solid-svg-icons'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { faUpLong } from '@fortawesome/free-solid-svg-icons'
+import { faEye } from '@fortawesome/free-regular-svg-icons'
 
 
 const SubFeatured = ({ info, changeFeaturedItem }) => {
@@ -30,7 +31,7 @@ const SubFeatured = ({ info, changeFeaturedItem }) => {
                 src={info.project.image} alt="project name" />
 
             {info.i !== 0 ? <div id="more-info-button">
-                <a href="#" onClick={(e) => { e.preventDefault(); changeFeaturedItem(info.i) }}><span>More info</span></a>
+                <FontAwesomeIcon icon={faEye} onClick={(e) => { e.preventDefault(); changeFeaturedItem(info.i) }} />
             </div> : null}
 
         </a>

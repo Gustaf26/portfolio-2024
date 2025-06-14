@@ -12,6 +12,8 @@ const GithubData = () => {
     const { gitUserData, gitRepoEvents } = useContext(GithubContext)
     const [commits, setCommits] = useState(0)
     const [repos, setRepos] = useState(0)
+    const hirable = true
+    const [lastUpdated, setLastUpdated] = useState('')
 
     useEffect(() => {
 
@@ -23,6 +25,10 @@ const GithubData = () => {
                 else clearInterval(reposInterval)
                 index += 1
             }, 100)
+
+            let updatedDate = gitUserData.data?.updated_at
+
+            setLastUpdated(new Date(updatedDate).toDateString('yyy-mm-dd'))
         }
 
     }, [gitUserData])
@@ -50,15 +56,17 @@ const GithubData = () => {
 
     return (<div id="github-data-container">
         <div className="loader-container">
-            <h6>Repositories</h6>
+            <h6>Github Repos</h6>
             <span className="loader repos-loader"><span>{repos && repos}</span></span></div>
         <div className="loader-container">
-            <h6>Commits On This Page</h6>
+            <h6>Commits Here</h6>
             <span className="loader"><span>{commits && commits}</span></span></div>
         <div className="loader-container">
-            <span className="loader"></span></div>
+            <h6>Available</h6>
+            <span className="loader not-numbers">Now</span></div>
         <div className="loader-container">
-            <span className="loader"></span></div>
+            <h6>Latest Update</h6>
+            <span className="loader not-numbers">{lastUpdated && lastUpdated.slice(4, 11)}</span></div>
     </div>)
 }
 

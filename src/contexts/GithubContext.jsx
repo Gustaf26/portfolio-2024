@@ -44,7 +44,7 @@ export const GithubContextProv = (props) => {
 
 
         const promises = Promise.all([getEventsData, getUserData])
-        promises.then(res => { setGitUserData(res[1]); setRepoEvents(res[0]) })
+        promises.then(res => { setGitUserData(res[1]); setRepoEvents(res[0]); console.log(res) })
 
     }, [])
 
