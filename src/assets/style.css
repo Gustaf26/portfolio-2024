@@ -396,6 +396,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 
     @media screen and (max-width:900px) {
         width: 75%;
@@ -404,39 +405,68 @@ img {
 }
 
 #github-data-container {
-    width: 100%;
+    width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-}
+    gap: 10px;
 
-.loader {
-    width: 150px;
-    height: 150px;
-    line-height: 150px;
-    text-align: center;
-    border-radius: 50%;
-    align-self: center;
-    justify-self: center;
-    position: relative;
-    animation: rotate 1s linear forwards;
-}
+    & .loader-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
 
-.loader::before,
-.loader::after {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    inset: 0px;
-    border-radius: 50%;
-    border: 5px solid rgb(233, 155, 233);
-    animation: prixClipFix 2s linear forwards;
-}
+        & h6 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
 
-.loader::after {
-    inset: 8px;
-    transform: rotate3d(90, 90, 0, 180deg);
-    border-color: rgb(202, 104, 202);
+        & h6::first-letter {
+            text-transform: capitalize;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            /* Different font family */
+            font-size: 32px;
+            /* Optional: Make it larger */
+            color: rgb(202, 104, 202);
+            ;
+            /* Optional: Change color */
+        }
+    }
+
+    & .loader {
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        text-align: center;
+        font-size: 1.75em;
+        color: rgb(107, 142, 169);
+        font-weight: 900 !important;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        border-radius: 50%;
+        align-self: center;
+        justify-self: center;
+        position: relative;
+        animation: rotate 5s linear forwards;
+        box-shadow: 2px 2px 6px rgb(201, 201, 201);
+    }
+
+    .loader::before,
+    .loader::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        inset: 6px;
+        border-radius: 50%;
+        border: 5px solid rgb(233, 155, 233);
+        animation: prixClipFix 2s linear forwards;
+    }
+
+    .loader::after {
+        inset: 8px;
+        transform: rotate3d(90, 90, 0, 180deg);
+        border-color: rgb(91, 108, 112);
+    }
 }
 
 @keyframes rotate {
