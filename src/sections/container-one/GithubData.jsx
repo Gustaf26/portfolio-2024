@@ -39,7 +39,7 @@ const GithubData = () => {
 
             let events = gitRepoEvents.data
             let allCommits = events.map((a) => {
-                return (a.payload.commits.length)
+                return (a.payload.commits?.length)
             })
             let commitsQty = allCommits.reduce((a, b) => a + b)
 
