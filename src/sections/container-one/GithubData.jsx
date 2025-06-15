@@ -37,11 +37,12 @@ const GithubData = () => {
 
         if (gitRepoEvents) {
 
-            let events = gitRepoEvents.data
-            let allCommits = events.map((a) => {
-                return (a.payload.commits?.length)
+            let events = [...gitRepoEvents.data]
+            let allCommits = events.map((event) => {
+                return (event.payload?.commits?.length ? event.payload.commits.length : 0)
             })
-            let commitsQty = allCommits.reduce((a, b) => a + b)
+
+            let commitsQty = allCommits && allCommits.reduce((a, b) => a + b)
 
             let index = 0
             const commitsInterval = setInterval(() => {
@@ -56,7 +57,7 @@ const GithubData = () => {
 
     return (<div id="github-data-container">
         <div className="loader-container">
-            <h6>Github Repos</h6>
+            <h6>Public Repos</h6>
             <span className="loader repos-loader"><span>{repos && repos}</span></span></div>
         <div className="loader-container">
             <h6>Commits Here</h6>

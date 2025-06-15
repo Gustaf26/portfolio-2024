@@ -310,13 +310,31 @@ img {
 
 #git-and-skills-section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: 80%;
+    align-items: center;
+    width: 100%;
     max-width: 1200px;
     margin: 30px auto;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.7);
     gap: 20px;
+
+    & h2 {
+        color: white;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        &::first-letter {
+            text-transform: capitalize;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            /* Different font family */
+            font-size: 32px;
+            /* Optional: Make it larger */
+            color: rgb(202, 104, 202);
+            /* Optional: Change color */
+        }
+
+    }
 
     @media screen and (max-width:1000px) {
         flex-direction: column;
@@ -336,21 +354,6 @@ img {
             max-width: 500px;
         }
 
-        & h2 {
-            color: white;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-            &::first-letter {
-                text-transform: capitalize;
-                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                /* Different font family */
-                font-size: 32px;
-                /* Optional: Make it larger */
-                color: rgb(202, 104, 202);
-                /* Optional: Change color */
-            }
-
-        }
 
 
     }
@@ -473,11 +476,13 @@ img {
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            box-shadow: 4px 4px 2px rgb(129, 121, 132);
+            box-shadow: 4px 4px 2px rgba(51, 51, 51, 0.4);
+            ;
             padding: 10px 10px 20px 10px;
             border-radius: 5px;
             border-top: 1px solid rgb(129, 121, 132);
             border-left: 1px solid rgb(129, 121, 132);
+            background-color: rgba(0, 0, 0, 0.4);
 
             & h6 {
                 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -503,9 +508,9 @@ img {
                 height: 120px;
                 line-height: 120px;
                 text-align: center;
-                font-size: 1.15em;
+                font-size: 1.25em;
                 color: rgb(107, 142, 169);
-                font-weight: 900 !important;
+                font-weight: 600 !important;
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 border-radius: 50%;
                 align-self: center;
@@ -522,7 +527,7 @@ img {
                     font-size: 1em;
 
                     &.not-numbers {
-                        font-size: 0.9em;
+                        font-size: 0.8em;
                     }
 
                 }
@@ -531,14 +536,14 @@ img {
                     animation: popping-color 2s forwards !important;
                 }
 
-                /* &.not-numbers {
-                    font-size: 1em;
-                } */
+                &.not-numbers {
+                    font-size: 0.8em;
+                }
 
                 &:hover {
                     transform: scale(1.05) !important;
                     cursor: pointer;
-                    transition: all 1s ease-in-out;
+                    transition: all 1s ease-in-out !important;
                 }
             }
 
@@ -549,7 +554,7 @@ img {
                 position: absolute;
                 inset: 6px;
                 border-radius: 50%;
-                border: 5px solid rgb(233, 155, 233);
+                border: 3px solid rgb(233, 155, 233);
                 animation: prixClipFix 2s linear forwards;
             }
 
@@ -696,7 +701,7 @@ aside {
     background-color: #fff !important;
     width: 100%;
     padding: 20px;
-    margin: 0px auto 30px auto;
+    /* margin: 0px auto 30px auto; */
     border-radius: 5px;
     border: 0.5px solid rgb(211, 217, 222);
 }
@@ -949,8 +954,7 @@ section {
                 font-weight: 500;
                 text-align: center;
                 padding: 15px;
-                /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-                /* animation: show 1s linear forwards; */
+                font-size: 0.9em;
                 filter: contrast(120%);
 
                 &.animated {

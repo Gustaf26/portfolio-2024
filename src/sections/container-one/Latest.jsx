@@ -8,9 +8,10 @@ import { faUpLong } from '@fortawesome/free-solid-svg-icons'
 import { faEye } from '@fortawesome/free-regular-svg-icons'
 
 
-const SubFeatured = ({ info, changeFeaturedItem }) => {
+const Project = ({ info, changeFeaturedItem }) => {
 
     const [hovered, setHovered] = useState(false)
+    const [showingDesc, setShowingDesc] = useState(false)
 
 
     useEffect(() => {
@@ -19,11 +20,14 @@ const SubFeatured = ({ info, changeFeaturedItem }) => {
 
     }, [info.project.showingDesc])
 
-    return (<div onMouseOver={() => !info.project.showingDesc ? setHovered(true) : setHovered(hovered)}
+    return (<div onMouseOver={() => !showingDesc ? setHovered(true) : setHovered(hovered)}
         onMouseOut={() => setHovered(false)}
         id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured' :
             'item last-item not-featured'}>
+
+        {/* Only showing title of featured project */}
         {info.i === 0 ? <h3 className="title">{info.project.title}</h3> : null}
+
         <a className="featured-img-container"
             href="#"
             target="_blank" onClick={(e) => e.preventDefault()}>
@@ -35,7 +39,7 @@ const SubFeatured = ({ info, changeFeaturedItem }) => {
             </div> : null}
 
         </a>
-        {info?.i === 0 && info.project.showingDesc === true && hovered ? < div className="featured-desc animated">
+        {info?.i === 0 && showingDesc === true && hovered ? < div className="featured-desc animated">
             <FontAwesomeIcon onClick={(e) => { e.stopPropagation(); setHovered(false) }} icon={faClose} />
             <p>{info.project.description}</p>
             <p><a
@@ -44,7 +48,7 @@ const SubFeatured = ({ info, changeFeaturedItem }) => {
             </p>
         </div> : info.i === 0 && !hovered ? (
             < div className="featured-desc"><FontAwesomeIcon className="arrow-up"
-                onClick={(e) => { e.stopPropagation(); setHovered(true) }} icon={faUpLong} /></div>)
+                onClick={(e) => { e.stopPropagation(); setHovered(true); setShowingDesc(true) }} icon={faUpLong} /></div>)
             : null
         }
     </div >
@@ -77,7 +81,7 @@ function Latest() {
 
     const setDescriptionShowing = (dummyProjects) => {
 
-        let allProjs = dummyProjects.map((proj, i) => { (i === 0 ? proj.showingDesc = true : proj.showingDesc = false); return proj })
+        let allProjs = dummyProjects.map((proj, i) => { (proj.showingDesc = false); return proj })
         setProjects(allProjs)
     }
 
@@ -148,7 +152,7 @@ function Latest() {
             <FontAwesomeIcon ref={rotationIcon} onClick={rotate} icon={faRotate} />
         </button>
         {sectionProjects && sectionProjects.map((project, i) => {
-            return (<SubFeatured key={'project' + i} changeFeaturedItem={changeFeaturedItem} info={{ project, i }} />)
+            return (<Project key={'project' + i} changeFeaturedItem={changeFeaturedItem} info={{ project, i }} />)
         })}
     </section >)
 

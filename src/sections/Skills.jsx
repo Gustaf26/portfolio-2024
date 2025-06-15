@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect, useContext } from 'react'
 
-
 import StyleContext from '../contexts/StyleContext';
 
 function Skills() {
@@ -16,19 +15,23 @@ function Skills() {
     ])
 
     const [levels, setLevels] = useState([0, 0, 0, 0, 0])
-    const [levelsLoaded, setLoaded] = useState(false)
 
     useEffect(() => {
+
         let dummyLevels = [90, 80, 70, 70, 70]
         let otherLevels = [0, 0, 0, 0, 0]
+
         let myInt = setInterval(() => {
+
             let newLevels = otherLevels.map((lev, i) => {
                 if (otherLevels[i] == dummyLevels[i]) { return Number(lev) }
                 else { return Number(lev) + 2 }
             })
 
             setLevels(newLevels)
+
             let allSame = false
+
             const compareArrays = () => {
                 let sameOnes = 0
                 dummyLevels.forEach((level, i) => {
@@ -41,57 +44,17 @@ function Skills() {
                 })
                 return allSame
             }
-            if (compareArrays()) { console.log('Same levels'); setLoaded(true); clearInterval(myInt) }
-            otherLevels = newLevels
+            if (compareArrays()) {
+                console.log('Same levels');
+                dummyLevels = [90, 80, 70, 70, 70]
+                otherLevels = [0, 0, 0, 0, 0];
+            }
+            else otherLevels = newLevels;
         }, 100)
 
+        return () => clearInterval(myInt)
+
     }, [])
-
-    useEffect(() => {
-        let dummyLevels = [90, 80, 70, 70, 70]
-        let otherLevels = [0, 0, 0, 0, 0]
-
-        let levelsShining = [...document.querySelectorAll('.shining-prog')]
-
-        levelsShining.forEach((lev, i) => {
-            lev.style.backgroundPosition = `0px 50%`
-        })
-
-        if (levelsLoaded) {
-            // console.log(levelsLoaded)
-            let myInt = setInterval(() => {
-                let newLevels = otherLevels.map((lev, i) => {
-                    if (i === 0) levelsShining[i].style.background = `linear-gradient(to right, rgb(241, 211, 241) ${10 - lev}%, white ${lev}%, rgb(241, 211, 241) 100%)`
-
-                    if (otherLevels[i] == dummyLevels[i]) { return Number(lev) }
-                    else { return Number(lev) + 5 }
-                })
-                let allSame = false
-                const compareArrays = () => {
-                    let sameOnes = 0
-                    for (let i = 0; i < dummyLevels.length; i++) {
-                        for (let j = 0; j < newLevels.length; j++) {
-                            if (dummyLevels[i] === newLevels[j] && i == j) {
-                                sameOnes += 1
-                                break
-                            }
-                        }
-                        allSame = sameOnes === newLevels.length ? true : false
-                    }
-                    return allSame
-                }
-                if (compareArrays()) {
-                    console.log('Same dummy levels');
-                    newLevels.forEach((lev, i) => {
-                        levelsShining[i].style.background = i === 0 ? 'rgb(241, 211, 241)' : 'rgb(78, 102, 109)'
-                    })
-                    clearInterval(myInt)
-                }
-                otherLevels = newLevels
-            }, 100)
-        }
-    }, [levelsLoaded])
-
 
 
     const skills = [{ name: "Javascript", level: levels[0], ref: skillRefs[0] },

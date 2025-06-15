@@ -85,11 +85,13 @@ const App = () => {
               <Skills />
             </div>
             <div id="git-data-supra-container">
+              <h2>Activity</h2>
               <GithubContextProv>
                 <GithubData />
               </GithubContextProv>
             </div>
           </div>
+          <hr />
           <Experience key="experience" />
           {secondItems.length ? secondItems.map(item => item) : null}
           <button id="contact-me-button">
