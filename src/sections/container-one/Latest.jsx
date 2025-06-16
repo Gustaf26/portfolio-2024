@@ -20,7 +20,7 @@ const Project = ({ info, changeFeaturedItem }) => {
 
     }, [info.project.showingDesc])
 
-    return (<div onMouseOver={() => !showingDesc ? setHovered(true) : setHovered(hovered)}
+    return (<div onMouseOver={() => !showingDesc ? setHovered(false) : setHovered(hovered)}
         onMouseOut={() => setHovered(false)}
         id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured' :
             'item last-item not-featured'}>

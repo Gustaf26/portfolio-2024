@@ -491,7 +491,7 @@ img {
                     text-transform: capitalize;
                     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
                     /* Different font family */
-                    font-size: 32px;
+                    font-size: 26px;
                     /* Optional: Make it larger */
                     color: rgb(202, 104, 202);
                     ;
@@ -501,6 +501,12 @@ img {
                 @media screen and (max-width:600px) {
                     font-size: 0.9em;
                 }
+            }
+
+            &:hover {
+                transform: scale(1.05) !important;
+                cursor: pointer;
+                transition: transform 0.5s ease-in-out !important;
             }
 
             & .loader {
@@ -517,7 +523,6 @@ img {
                 justify-self: center;
                 background-color: rgb(203, 202, 205);
                 position: relative;
-                animation: rotate 5s linear forwards;
                 text-shadow: 5px 5px 5px rgb(190, 178, 178);
 
                 @media screen and (max-width:600px) {
@@ -539,12 +544,6 @@ img {
                 &.not-numbers {
                     font-size: 0.8em;
                 }
-
-                &:hover {
-                    transform: scale(1.05) !important;
-                    cursor: pointer;
-                    transition: all 1s ease-in-out !important;
-                }
             }
 
             .loader::before,
@@ -552,16 +551,27 @@ img {
                 content: "";
                 box-sizing: border-box;
                 position: absolute;
-                inset: 6px;
                 border-radius: 50%;
-                border: 3px solid rgb(233, 155, 233);
-                animation: prixClipFix 2s linear forwards;
+                border: 6px solid rgb(233, 155, 233);
+                animation: prixClipFix linear forwards;
+                animation-duration: 5s;
+                animation-delay: 0s;
+            }
+
+            .loader::before:hover,
+            .loader::after:hover {
+                animation: none !important;
+            }
+
+            .loader::before {
+                inset: 12px;
             }
 
             .loader::after {
-                inset: 8px;
+                inset: 3px;
                 transform: rotate3d(90, 90, 0, 180deg);
                 border-color: rgb(91, 108, 112);
+                border-width: 3px;
             }
         }
     }
@@ -589,7 +599,7 @@ img {
 
     75%,
     100% {
-        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
     }
 }
 
@@ -1357,5 +1367,69 @@ footer {
     .experience .item h3 {
         display: flex;
         flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width:1201px) {
+    .main-container {
+
+        & section.projects {
+
+            width: 80%;
+            grid-template-rows: 350px 400px 1fr 1fr 1fr;
+            grid-template-columns: 10% 15% 50% 20% 5%;
+            padding-right: 90px;
+
+            & #rotate-projects-button {
+                grid-column: 3/4;
+                grid-row: 3/4;
+                margin-top: -100px;
+
+            }
+
+            & .item {
+                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+
+            }
+
+            & .featured {
+                grid-row: 2/3;
+                grid-column: 3/4;
+                z-index: 200;
+                margin-top: -200px;
+            }
+
+            & #item-2 {
+                grid-column: 1/3;
+                grid-row: 1/2;
+            }
+
+            & #item-3 {
+                grid-column: 4/5;
+                grid-row: 2/3;
+            }
+
+            & #item-4 {
+                grid-column: 3/5;
+                grid-row: 2/3;
+                display: none;
+            }
+        }
+
+        & #git-and-skills-section {
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            gap: 40px;
+
+            & #git-data-supra-container {
+                padding-top: 0px;
+
+                & #github-data-container {
+                    padding: 0px 20px 20px 20px;
+                }
+            }
+        }
+
     }
 }
