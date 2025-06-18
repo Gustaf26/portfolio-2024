@@ -88,7 +88,7 @@ function Latest() {
 
     const rotate = (e) => {
 
-        if (e) { e.target.classList.add('rotated'); scrollToFeatured() }
+        if (e) { e.target.classList.add('rotated'); }
         else { rotationIcon.current.classList.add('rotated') }
 
         let allProjimages = [...document.querySelectorAll('.featured-img')]
