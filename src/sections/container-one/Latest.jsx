@@ -22,7 +22,7 @@ const Project = ({ info, changeFeaturedItem }) => {
 
     return (<div onMouseOver={() => !showingDesc ? setHovered(false) : setHovered(hovered)}
         onMouseOut={() => setHovered(false)}
-        id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured' :
+        id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured position-change' :
             'item last-item not-featured'}>
 
         {/* Only showing title of featured project */}

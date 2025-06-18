@@ -14,6 +14,8 @@ function Skills() {
         useRef(null),
     ])
 
+    const [intervalRunning, setIntervalRunning] = useState(false)
+
     const [levels, setLevels] = useState([0, 0, 0, 0, 0])
 
     useEffect(() => {
@@ -21,40 +23,49 @@ function Skills() {
         let dummyLevels = [90, 80, 70, 70, 70]
         let otherLevels = [0, 0, 0, 0, 0]
 
-        let myInt = setInterval(() => {
+        let levelsInterval
 
-            let newLevels = otherLevels.map((lev, i) => {
-                if (otherLevels[i] == dummyLevels[i]) { return Number(lev) }
-                else { return Number(lev) + 2 }
-            })
+        const myInt = () => {
 
-            setLevels(newLevels)
+            levelsInterval = setInterval(() => {
 
-            let allSame = false
-
-            const compareArrays = () => {
-                let sameOnes = 0
-                dummyLevels.forEach((level, i) => {
-                    newLevels.forEach((lev, j) => {
-                        if (lev === level && i == j) {
-                            sameOnes += 1
-                        }
-                    })
-                    allSame = sameOnes === newLevels.length ? true : false
+                let newLevels = otherLevels.map((lev, i) => {
+                    if (otherLevels[i] == dummyLevels[i]) { return Number(lev) }
+                    else { return Number(lev) + 2 }
                 })
-                return allSame
-            }
-            if (compareArrays()) {
-                console.log('Same levels');
-                dummyLevels = [90, 80, 70, 70, 70]
-                otherLevels = [0, 0, 0, 0, 0];
-            }
-            else otherLevels = newLevels;
-        }, 100)
 
-        return () => clearInterval(myInt)
+                setLevels(newLevels)
 
-    }, [])
+                let allSame = false
+
+                const compareArrays = () => {
+                    let sameOnes = 0
+                    dummyLevels.forEach((level, i) => {
+                        newLevels.forEach((lev, j) => {
+                            if (lev === level && i == j) {
+                                sameOnes += 1
+                            }
+                        })
+                        allSame = sameOnes === newLevels.length ? true : false
+                    })
+                    return allSame
+                }
+                if (compareArrays()) {
+                    console.log('Same levels');
+                    dummyLevels = [90, 80, 70, 70, 70]
+                    otherLevels = [0, 0, 0, 0, 0];
+                    setIntervalRunning(false)
+                    clearInterval(levelsInterval)
+                }
+                else otherLevels = newLevels;
+            }, 100)
+        }
+
+        if (intervalRunning === false) {
+            setTimeout(() => { setIntervalRunning(true); myInt() }, 3000)
+        }
+
+    }, [intervalRunning])
 
 
     const skills = [{ name: "Javascript", level: levels[0], ref: skillRefs[0] },
