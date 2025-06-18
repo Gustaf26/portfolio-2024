@@ -924,13 +924,21 @@ section {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    background-color: rgba(0, 0, 0, 0.6);
+                    background-color: rgba(0, 0, 0, 0.3);
                     width: 100%;
                     height: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     border-radius: 5px;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0);
+
+                        & svg {
+                            visibility: hidden;
+                        }
+                    }
 
                     & svg {
                         color: rgb(208, 205, 208);
@@ -946,7 +954,6 @@ section {
                         &:hover {
                             color: rgb(227, 200, 227);
                             border: 0.5px solid rgb(227, 200, 227);
-
                         }
                     }
                 }
@@ -1420,33 +1427,49 @@ footer {
             padding-right: 90px;
 
             & #rotate-projects-button {
-                grid-column: 3/4;
-                grid-row: 3/4;
-                margin-top: -100px;
-
+                grid-column: 1/3;
+                grid-row: 1/2;
+                display: none;
             }
 
             & .item {
                 box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 
+                & img {
+                    height: 700px;
+                }
             }
 
             & .featured {
-                grid-row: 2/3;
-                grid-column: 3/4;
-                z-index: 200;
-                margin-top: -200px;
+                grid-row: 1/7;
+                grid-column: 1/7;
+                z-index: 0;
+            }
+
+            & #item-2,
+            #item-3 {
+                height: 140px;
+                width: 40%;
+                margin: 20px;
+                border: 2px solid rgb(209, 160, 209);
+                padding: 5px;
+                border-radius: 10px;
+
+                & img {
+                    max-height: 90%;
+                }
             }
 
             & #item-2 {
                 grid-column: 1/3;
                 grid-row: 1/2;
-
+                align-self: flex-start;
             }
 
             & #item-3 {
-                grid-column: 4/5;
-                grid-row: 2/3;
+                grid-column: 1/3;
+                grid-row: 1/2;
+                align-self: flex-end;
             }
 
             & #item-4 {

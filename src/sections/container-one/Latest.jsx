@@ -23,7 +23,8 @@ const Project = ({ info, changeFeaturedItem }) => {
     return (<div onMouseOver={() => !showingDesc ? setHovered(false) : setHovered(hovered)}
         onMouseOut={() => setHovered(false)}
         id={'item-' + (info.i + 1)} className={info.i === 0 ? "item featured" : info.i === 1 || info.i === 3 ? 'item middle-item not-featured position-change' :
-            'item last-item not-featured'}>
+            'item last-item not-featured'}
+        onClick={(e) => { if (info.i !== 0) { e.preventDefault(); changeFeaturedItem(info.i) } }}>
 
         {/* Only showing title of featured project */}
         {info.i === 0 ? <h3 className="title">{info.project.title}</h3> : null}
@@ -35,7 +36,7 @@ const Project = ({ info, changeFeaturedItem }) => {
                 src={info.project.image} alt="project name" />
 
             {info.i !== 0 ? <div id="more-info-button">
-                <FontAwesomeIcon icon={faEye} onClick={(e) => { e.preventDefault(); changeFeaturedItem(info.i) }} />
+                <FontAwesomeIcon icon={faEye} />
             </div> : null}
 
         </a>
