@@ -315,10 +315,10 @@ img {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 30px auto;
+    margin: 0px auto;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.7);
-    gap: 10px;
+    gap: 20px;
 
     & h2 {
         color: white;
@@ -350,14 +350,12 @@ img {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        padding: 0px 10px;
 
         @media screen and (max-width:900px) {
             width: 100%;
             max-width: 500px;
         }
-
-
-
     }
 
     & .skills {
@@ -425,6 +423,9 @@ img {
         }
     }
 
+    & hr {
+        margin-top: 20px;
+    }
 
     /* SPINNERS GITHUB */
 
@@ -688,6 +689,7 @@ img {
     width: 100vw;
     height: fit-content;
     border-top: 0.5px solid rgb(229, 226, 226);
+    gap: 20px;
 }
 
 
@@ -766,10 +768,11 @@ section {
 
         display: grid;
         width: 100%;
-        /* height: fit-content; */
+        /* min-height: fit-content; */
         grid-template-rows: 550px 400px 400px;
         grid-template-columns: 0.75fr 1fr 0.75fr 0.25fr 0.75fr 1fr 0.75fr;
         margin: 0 auto;
+        padding: 10px;
         border: none;
         gap: 20px;
 
@@ -1066,6 +1069,7 @@ section {
         height: 3px;
         width: 100%;
         border-top: 1px solid #c087c3;
+        margin: 0;
     }
 
     & section.experience {
@@ -1260,29 +1264,18 @@ footer {
         }
     }
 
-    .skills {
-        width: 90%;
-
-        & .skillset {
-
-            & h3.level-title {
-                font-size: 0.95em !important;
-            }
-        }
-    }
 
     .main-container {
 
         & section.projects {
-            padding-bottom: 0;
-            height: 1180px;
+            padding: 0px 20px;
             width: 100%;
-            grid-template-rows: 550px 150px 400px;
+            grid-template-rows: 550px 150px 400px 0px;
             grid-template-columns: 1fr 0.5fr 1fr;
-            /* gap: 15px; */
+            gap: 15px;
 
             & .item {
-                margin: 5px !important;
+                /* margin: 5px !important; */
                 height: 100%;
             }
 
@@ -1310,6 +1303,17 @@ footer {
 
             & #item-4 {
                 grid-column: 1/2;
+            }
+        }
+    }
+
+    .skills {
+        width: 90%;
+
+        & .skillset {
+
+            & h3.level-title {
+                font-size: 0.95em !important;
             }
         }
     }

@@ -78,12 +78,12 @@ const App = () => {
           <Latest />
           <hr />
           <div
-            // className={opacityAnimation ? 'opacity-animated' : ''} 
             id="git-and-skills-section">
             <div id="skills-container">
               <h2>Skills</h2>
               <Skills />
             </div>
+            <hr />
             <div id="git-data-supra-container">
               <h2>Activity</h2>
               <GithubContextProv>
