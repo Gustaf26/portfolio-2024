@@ -1,6 +1,5 @@
 
-import { useDraggable } from '@dnd-kit/core'
-import { CSS } from '@dnd-kit/utilities';
+
 import { useContext } from 'react';
 import StyleContext from '../../contexts/StyleContext';
 
@@ -31,33 +30,23 @@ function Experience() {
         , period: `(oct - dec 2020)`
     }];
 
-    const { attributes, listeners, setNodeRef, transform } = useDraggable({
-        id: 3,
-        data: {
-            supports: 'type3',
-        },
-    });
-
-    const style = {
-        transform: CSS.Translate.toString(transform),
-    };
 
     return (
         <section onMouseOver={() => setShadowSection(2)} onMouseOut={() => setShadowSection('')}
-            style={style} ref={setNodeRef} className={shadowSection === 2 ? "experience shadow-lg section" : "experience shadow-sm section"}>
-            {/* <span className="drag-me">DRAG ME</span> */}
-            <div {...listeners} {...attributes}>
-                <h2 className="heading">Work Experience</h2>
+            className={shadowSection === 2 ? "experience shadow-lg section content-container" : "experience shadow-sm section content-container"}>
+            <div>
                 <div className="content">
                     {workExperience.map(exp => {
                         return (
                             <div key={exp.company} className="item">
-                                <h3 className="title">
-                                    <span className="position">{exp.title}</span>
-                                    <span className="place">{exp.company}</span>
+                                <div className="title">
+                                    <h3 >
+                                        <span className="position">{exp.title}</span>
+                                        <span className="place">{exp.company}</span>
 
-                                </h3>
-                                <span className="year">{exp.period}</span>
+                                    </h3>
+                                    <span className="year">{exp.period}</span>
+                                </div>
                                 <p>{exp.description}</p>
                             </div>
                         );

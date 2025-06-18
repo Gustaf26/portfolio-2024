@@ -1,5 +1,4 @@
-import { useDraggable } from '@dnd-kit/core'
-import { CSS } from '@dnd-kit/utilities';
+
 
 import StyleContext from '../../contexts/StyleContext';
 
@@ -10,21 +9,9 @@ function Education() {
 
     const { shadowSection, setShadowSection } = useContext(StyleContext)
 
-    const { attributes, listeners, setNodeRef, transform } = useDraggable({
-        id: 8,
-        data: {
-            supports: 'type4',
-        },
-    });
-
-    const style = {
-        transform: CSS.Translate.toString(transform),
-    };
-
-    return (<aside onMouseOver={() => setShadowSection(6)} onMouseOut={() => setShadowSection('')}
-        style={style} ref={setNodeRef} className={shadowSection === 6 ? "education aside shadow-lg section" : "education aside shadow-sm section"}>
-        <div {...listeners} {...attributes} className="section-inner">
-            <h2 className="heading">Education</h2>
+    return (<section onMouseOver={() => setShadowSection(6)} onMouseOut={() => setShadowSection('')}
+        className={shadowSection === 6 ? "education aside shadow-lg section content-container" : "education aside shadow-sm section content-container"}>
+        <div className="section-inner">
             <div className="content">
                 <div className="item">
                     <h3 className="title"><i className="fas fa-graduation-cap"></i> Frontend Development
@@ -40,6 +27,6 @@ function Education() {
                 </div>
             </div>
         </div>
-    </aside>)
+    </section>)
 }
 export default Education

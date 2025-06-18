@@ -12,8 +12,8 @@ import Header from './components/Header';
 import BasicInfo from './sections/container-two/BasicInfo';
 import Skills from './sections/Skills.jsx';
 import Testimonials from './sections/container-two/Testimonials';
-import Education from './sections/container-two/Education';
 import Languages from './sections/container-two/Languages';
+import Education from './sections/container-one/Education'
 // import Footer from './components/Footer';
 import Contact from './sections/Contact.jsx'
 
@@ -24,46 +24,8 @@ import GithubData from './sections/container-one/GithubData.jsx';
 
 const App = () => {
   const [shadowSection, setShadowSection] = useState('')
-  const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Testimonials key="Testimonials" />, <Education key="Education" />, <Languages key="languages" />])
+  const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Testimonials key="Testimonials" />, <Languages key="languages" />])
 
-  // const skillsAndGitData = useRef()
-  // const newScroll = useRef(1)
-  // const lastScroll = useRef(0)
-  // const direction = useRef('down')
-
-  // const [opacityAnimation, setOpacityAnimation] = useState(false)
-
-  // const checkAnimationChange = (lastScroll, newScroll, direction) => {
-
-  //   let deviceHeight = window.innerHeight
-  //   let percentRate = (deviceHeight / newScroll) * 100
-
-  //   console.log(percentRate)
-
-  //   if ((newScroll > 1950 && direction === 'down') || (newScroll < 3150 && direction === 'up')) setOpacityAnimation(true)
-  //   else setOpacityAnimation(false)
-  // }
-
-  // useEffect(() => {
-
-  //   window.addEventListener('scroll', (e) => {
-  //     if (lastScroll.current < newScroll.current) {
-  //       direction.current = 'down'
-  //       lastScroll.current = newScroll.current
-  //       newScroll.current = window.pageYOffset
-  //       checkAnimationChange(lastScroll.current, newScroll.current, direction.current)
-  //       return
-  //     }
-  //     else if (lastScroll.current > newScroll.current) {
-  //       direction.current = 'up'
-  //       lastScroll.current = newScroll.current
-  //       newScroll.current = window.pageYOffset
-  //       checkAnimationChange(lastScroll.current, newScroll.current, direction.current)
-  //       return
-  //     }
-  //   })
-
-  // }, [])
 
   return (
     <div style={{ height: 'fit-content' }}>
@@ -92,7 +54,17 @@ const App = () => {
             </div>
           </div>
           <hr />
-          <Experience key="experience" />
+          <div id="experience-and-education-container">
+            <div id="experience-container">
+              <h2>Work Experience</h2>
+              <Experience key="experience" />
+            </div>
+            <hr />
+            <div id="education-container">
+              <h2>Education</h2>
+              <Education />
+            </div>
+          </div>
           {secondItems.length ? secondItems.map(item => item) : null}
           <button id="contact-me-button">
             <a href="mailto: gcs26@yahoo.com" target="">
