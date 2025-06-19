@@ -1,12 +1,7 @@
 
 
-import { useContext } from 'react';
-import StyleContext from '../../contexts/StyleContext';
-
 
 function Experience() {
-
-    const { shadowSection, setShadowSection } = useContext(StyleContext)
 
     const workExperience = [{
         title: "Web development Instructor",
@@ -32,8 +27,8 @@ function Experience() {
 
 
     return (
-        <section onMouseOver={() => setShadowSection(2)} onMouseOut={() => setShadowSection('')}
-            className={shadowSection === 2 ? "experience shadow-lg section content-container" : "experience shadow-sm section content-container"}>
+        <section
+            className="experience shadow-sm section content-container">
             <div>
                 <div className="content">
                     {workExperience.map(exp => {

@@ -5,7 +5,7 @@ body {
     overflow-x: hidden;
     max-width: 100vw;
     box-sizing: border-box;
-    background-color: white;
+    background-color: rgb(248, 248, 248);
 }
 
 #root {
@@ -320,6 +320,19 @@ img {
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.7);
     gap: 20px;
+
+    @media screen and (min-width:901px) {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    & hr {
+        margin: 0 !important;
+
+        @media screen and (min-width:901px) {
+            display: none;
+        }
+    }
 }
 
 #git-and-skills-section {
@@ -372,7 +385,7 @@ img {
 
             & h3 {
                 width: fit-content;
-                color: rgb(107, 142, 169);
+                color: white;
                 margin: 10px;
                 font-size: medium;
 
@@ -415,14 +428,13 @@ img {
 
             & h3 {
                 width: fit-content;
-                color: rgb(107, 142, 169);
+                color: rgb(254, 254, 254);
                 font-size: medium;
             }
 
             & .progress {
                 margin: 10px auto;
                 background-size: 20px;
-
             }
         }
     }
@@ -585,97 +597,6 @@ img {
 
 }
 
-#experience-and-education-container {
-
-    display: flex;
-
-    & h2 {
-        color: white;
-
-        &::first-letter {
-            text-transform: capitalize;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            /* Different font family */
-            font-size: 32px;
-            /* Optional: Make it larger */
-            color: rgb(202, 104, 202);
-            ;
-            /* Optional: Change color */
-        }
-    }
-
-    & #education-container,
-    #experience-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        & .content-container {
-            background-color: white;
-            border-radius: 5px;
-            max-width: 700px;
-
-
-            & .title {
-                font-size: 1.1em;
-                margin: 15px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                & h3 {
-                    text-align: center;
-                }
-
-                & span {
-                    font-weight: 200;
-                    margin-left: 7px;
-
-                    &.position {
-                        font-weight: bolder;
-                        margin-left: 0px;
-                        color: rgb(142, 56, 142);
-                    }
-                }
-            }
-        }
-    }
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg)
-    }
-
-    100% {
-        transform: rotate(360deg)
-    }
-}
-
-@keyframes prixClipFix {
-    0% {
-        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
-    }
-
-    50% {
-        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
-    }
-
-    75%,
-    100% {
-        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
-    }
-}
-
-@keyframes popping-color {
-    0% {
-        color: rgb(107, 142, 169);
-    }
-
-    100% {
-        color: rgb(202, 104, 202);
-    }
-}
 
 .about {
 
@@ -689,7 +610,7 @@ img {
 
     @media screen and (max-width:600px) {
         width: 100%;
-        padding: 10px;
+        padding: 20px 5px;
     }
 
     & .content {
@@ -1179,12 +1100,114 @@ section {
     }
 }
 
-/* ASIDE SECTION */
+
+#experience-and-education-container {
+    display: flex;
+    gap: 0px;
+
+    & h2 {
+        color: white;
+        margin-top: 10px;
+
+        &::first-letter {
+            text-transform: capitalize;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            /* Different font family */
+            font-size: 32px;
+            /* Optional: Make it larger */
+            color: rgb(202, 104, 202);
+            ;
+            /* Optional: Change color */
+        }
+    }
+
+    & #education-container,
+    #experience-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0);
+
+        & .content-container {
+            border-radius: 5px;
+            max-width: 700px;
+            color: white;
+
+
+            & .title {
+                margin: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                & h3 {
+                    text-align: center;
+                    color: rgb(239, 220, 239);
+                }
+
+                & span {
+                    font-weight: 200;
+                    margin-left: 7px;
+
+                    &.place {
+                        color: rgb(224, 208, 224);
+                    }
+
+                    &.position {
+                        font-weight: bolder;
+                        margin-left: 0px;
+                        color: rgb(209, 160, 209);
+                    }
+                }
+            }
+
+            & p {
+                font-weight: 400;
+                color: white;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    75%,
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+    }
+}
+
+@keyframes popping-color {
+    0% {
+        color: rgb(107, 142, 169);
+    }
+
+    100% {
+        color: rgb(202, 104, 202);
+    }
+}
+
 
 /*ASIDE SECTIONS */
 
 aside {
-    background-color: rgba(0, 0, 0, 0) !important;
     padding: 20px;
     margin: 0px auto 30px auto;
     border-radius: 5px;
@@ -1192,36 +1215,6 @@ aside {
     max-width: 700px;
 }
 
-.education .item {
-
-    & h2,
-    h3 {
-        margin-top: 10px;
-    }
-
-    & .university {
-        font-size: 18px !important;
-        color: var(--lightgrey)
-    }
-}
-
-/* .lang-item {
-
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    flex-direction: column;
-
-    & div {
-        display: flex;
-        align-items: center;
-    }
-
-    & img {
-        animation: blink 1s forwards infinite;
-    }
-
-} */
 
 @keyframes blink {
     0% {
@@ -1270,6 +1263,10 @@ footer {
     align-items: center;
     padding: 10px;
 
+    @media screen and (min-width:601px) {
+        justify-content: center;
+    }
+
     .section-inner {
         width: 100%;
         text-align: left;
@@ -1286,6 +1283,10 @@ footer {
     & small {
         text-align: center;
         padding: 10px;
+
+        & a {
+            color: rgb(222, 177, 222)
+        }
 
         & svg {
             color: rgb(247, 74, 74);
@@ -1385,6 +1386,12 @@ footer {
         100% {
             transform: scale(1.5);
             filter: grayscale(0%) blur(0px) brightness(120%);
+        }
+    }
+
+    #experience-and-education-container {
+        & p {
+            font-size: 0.85em;
         }
     }
 }

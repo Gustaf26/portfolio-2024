@@ -77,7 +77,7 @@ function Skills() {
 
 
     return (<aside onMouseOver={() => setShadowSection(4)} onMouseOut={() => setShadowSection('')}
-        className={shadowSection === 4 ? "skills aside shadow-lg section" : "skills aside shadow-sm section"}>
+        className="skills aside section">
         <div className="section-inner">
             <div className="content">
                 <div id="skillset" className="skillset">
@@ -88,7 +88,7 @@ function Skills() {
                                 <div className="level-bar progress" style={{ zIndex: 10, height: '4px' }}>
                                     <span className="shining-prog progress-bar-value" ref={skillRefs[i]}
                                         style={{
-                                            background: i === 0 ? 'rgb(241, 211, 241)' : 'rgb(78, 102, 109)',
+                                            background: i === 0 ? 'rgb(241, 211, 241)' : 'rgb(169, 198, 207)',
                                             width: skill.level + "%", borderRadius: '20px', height: '7px'
                                         }} id={skill.name}></span>
                                 </div>

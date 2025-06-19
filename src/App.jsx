@@ -9,10 +9,8 @@ import About from './sections/container-one/About';
 import Latest from './sections/container-one/Latest';
 import Experience from './sections/container-one/Experience';
 import Header from './components/Header';
-// import BasicInfo from './sections/container-two/BasicInfo';
 import Skills from './sections/Skills.jsx';
 import Testimonials from './sections/container-one/Testimonials.jsx';
-// import Languages from './sections/container-two/Languages';
 import Education from './sections/container-one/Education'
 import Footer from './components/Footer';
 import Contact from './sections/Contact.jsx'
@@ -24,8 +22,6 @@ import GithubData from './sections/container-one/GithubData.jsx';
 
 const App = () => {
   const [shadowSection, setShadowSection] = useState('')
-  // const [secondItems, setSecondItems] = useState([<BasicInfo style={{ backgroundColor: 'white' }} key="basicInfo" />, <Testimonials key="Testimonials" />, <Languages key="languages" />])
-
 
   return (
     <div style={{ height: 'fit-content' }}>
@@ -65,7 +61,6 @@ const App = () => {
               <Education />
             </div>
           </div>
-          {/* {secondItems.length ? secondItems.map(item => item) : null} */}
           <button id="contact-me-button">
             <a href="mailto: gcs26@yahoo.com" target="">
               CONTACT ME</a>
