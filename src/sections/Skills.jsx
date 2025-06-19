@@ -62,7 +62,7 @@ function Skills() {
         }
 
         if (intervalRunning === false) {
-            setTimeout(() => { setIntervalRunning(true); myInt() }, 3000)
+            setTimeout(() => { setIntervalRunning(true); myInt() }, 5000)
         }
 
     }, [intervalRunning])
