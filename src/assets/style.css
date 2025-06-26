@@ -227,21 +227,34 @@ header ul.social {
 
 /* CONTACT BUTTON FIXED POSITION */
 
-#contact-me-button {
+#contact-me-container {
     position: fixed;
-    bottom: 40px;
+    bottom: 0px;
     left: 0px;
+    right: 0px;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+}
+
+#contact-me-button {
     height: 50px;
-    margin-left: 40px;
+    display: flex;
+    margin: 0 auto;
     width: 180px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: transparent;
     border: 1px solid rgb(153, 152, 152);
     border-radius: 3px;
     font-size: 8px;
-    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 200;
+
+    &:hover {
+        background-color: rgba(209, 160, 209, 0.5);
+    }
 
     @media screen and (max-width:600px) {
         width: 180px;
@@ -260,7 +273,7 @@ header ul.social {
     & a {
         font-weight: 600;
         font-size: 2em;
-        color: rgb(202, 104, 202);
+        color: white;
 
         @media screen and (max-width:600px) {
             font-size: 0.85em;
@@ -276,12 +289,8 @@ header ul.social {
         width: 30px;
         height: 20px;
         object-fit: cover;
+        filter: brightness(0) saturate(100%) invert(97%) sepia(53%) saturate(1064%) hue-rotate(195deg) brightness(95%) contrast(86%);
     }
-
-    &:hover {
-        color: rgb(202, 104, 202);
-    }
-
 }
 
 
@@ -1066,6 +1075,26 @@ section {
 
     100% {
         transform: translateY(0px);
+    }
+}
+
+@keyframes move-up-contact-button {
+    0% {
+        transform: translateY(40px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes move-down-contact-button {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(100px);
     }
 }
 

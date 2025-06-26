@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import StyleContext from './contexts/StyleContext';
 
@@ -22,6 +22,25 @@ import GithubData from './sections/container-one/GithubData.jsx';
 
 const App = () => {
   const [shadowSection, setShadowSection] = useState('')
+  const offsetY = useRef(window.pageYOffset)
+  const contactButtonRef = useRef()
+
+  useEffect(() => {
+
+    window.addEventListener('scroll', (e) => {
+
+      if (window.pageYOffset < offsetY.current) {
+        contactButtonRef.current.style.display = 'flex'
+        contactButtonRef.current.style.animation = 'move-up-contact-button 0.5s linear forwards'
+      }
+      else {
+        contactButtonRef.current.style.animation = 'move-down-contact-button 0.5s linear forwards'
+      }
+
+      offsetY.current = window.pageYOffset
+
+    })
+  }, [])
 
   return (
     <div style={{ height: 'fit-content' }}>
@@ -61,11 +80,13 @@ const App = () => {
               <Education />
             </div>
           </div>
-          <button id="contact-me-button">
-            <a href="mailto: gcs26@yahoo.com" target="">
-              CONTACT ME</a>
-            <img alt="send-email" src={mail} />
-          </button>
+          <div ref={contactButtonRef} id="contact-me-container">
+            <button id="contact-me-button">
+              <a href="mailto: gcs26@yahoo.com" target="">
+                CONTACT ME</a>
+              <img alt="send-email" src={mail} />
+            </button>
+          </div>
         </div>
       </StyleContext.Provider>
       <Testimonials />
