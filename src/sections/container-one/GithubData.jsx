@@ -1,18 +1,14 @@
 
-import { useState, useContext, useEffect, useRef } from 'react'
+import { useState, useContext, useEffect } from 'react'
 
 import { GithubContext } from '../../contexts/GithubContext.jsx'
 
-// const DataWheel = (data) => {
-//     return (<span class="loader">Repositories</span>)
-// }
 
 const GithubData = () => {
 
     const { gitUserData, gitRepoEvents } = useContext(GithubContext)
     const [commits, setCommits] = useState(0)
     const [repos, setRepos] = useState(0)
-    const hirable = true
     const [lastUpdated, setLastUpdated] = useState('')
 
     useEffect(() => {

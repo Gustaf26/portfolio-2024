@@ -90,7 +90,7 @@ function Skills() {
                                 <div className="level-bar progress" style={{ zIndex: 10, height: '4px' }}>
                                     <span className="shining-prog progress-bar-value" ref={skillRefs[i]}
                                         style={{
-                                            background: i === 0 ? 'rgb(241, 211, 241)' : 'rgb(169, 198, 207)',
+                                            background: i === 0 ? 'rgb(227, 162, 227)' : 'rgb(138, 181, 195)',
                                             width: skill.level + "%", borderRadius: '20px', height: '7px'
                                         }} id={skill.name}></span>
                                 </div>

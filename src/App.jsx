@@ -1,10 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-import StyleContext from './contexts/StyleContext';
-
-import './assets/style.css'
-
 import About from './sections/container-one/About';
 import Latest from './sections/container-one/Latest';
 import Experience from './sections/container-one/Experience';
@@ -13,40 +9,67 @@ import Skills from './sections/Skills.jsx';
 import Testimonials from './sections/container-one/Testimonials.jsx';
 import Education from './sections/container-one/Education'
 import Footer from './components/Footer';
-import Contact from './sections/Contact.jsx'
+import Hero from './sections/Hero.jsx'
 
 import { GithubContextProv } from './contexts/GithubContext.jsx';
 
 import mail from './assets/images/email.png'
 import GithubData from './sections/container-one/GithubData.jsx';
 
+import StyleContext from './contexts/StyleContext';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
+
+import './assets/style.css'
+
 const App = () => {
+
   const [shadowSection, setShadowSection] = useState('')
+
+  const noContact = useRef(false)
   const offsetY = useRef(window.pageYOffset)
   const contactButtonRef = useRef()
+  const mainContainerRef = useRef()
+
+  const toggleContactButton = (action) => {
+
+    if (action === 'move-down')
+      contactButtonRef.current.style.animation = 'move-down-contact-button 0.5s linear forwards'
+    else {
+      if (noContact.current === false) {
+        contactButtonRef.current.style.display = 'flex'
+        contactButtonRef.current.style.animation = 'move-up-contact-button 0.5s linear forwards'
+      }
+    }
+  }
 
   useEffect(() => {
 
     window.addEventListener('scroll', (e) => {
 
       if (window.pageYOffset < offsetY.current) {
-        contactButtonRef.current.style.display = 'flex'
-        contactButtonRef.current.style.animation = 'move-up-contact-button 0.5s linear forwards'
+        toggleContactButton('move-up')
       }
       else {
-        contactButtonRef.current.style.animation = 'move-down-contact-button 0.5s linear forwards'
+        toggleContactButton('move-down')
       }
 
       offsetY.current = window.pageYOffset
 
     })
+
+    const scrollToStart = () => mainContainerRef.current.scrollIntoView({ block: 'start' })
+
+    scrollToStart()
+
   }, [])
 
   return (
-    <div style={{ height: 'fit-content' }}>
+    <div ref={mainContainerRef} style={{ height: 'fit-content' }}>
       <StyleContext.Provider value={{ shadowSection, setShadowSection }}>
         <Header />
-        <Contact />
+        <Hero />
         <About />
         <div className="main-container">
           <div>
@@ -82,9 +105,11 @@ const App = () => {
           </div>
           <div ref={contactButtonRef} id="contact-me-container">
             <button id="contact-me-button">
+
               <a href="mailto: gcs26@yahoo.com" target="">
                 CONTACT ME</a>
               <img alt="send-email" src={mail} />
+              <FontAwesomeIcon onClick={() => { noContact.current = true; toggleContactButton('move-down') }} icon={faClose} />
             </button>
           </div>
         </div>

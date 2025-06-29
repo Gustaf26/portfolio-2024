@@ -8,7 +8,9 @@ function Footer() {
     return (<footer className="footer">
         <small className="copyright">Remastered by <a href="https://github.com/Gustaf26" target=""> Gustaf26 </a>after template with <FontAwesomeIcon icon={faHeartbeat} /> by <a href="https://themes.3rdwavemedia.com" target="">Xiaoying Riley</a> for developers</small>
         <div className="container">
-            <BasicInfo />
+            <div className="footer section-inner">
+                <p>Malmö, SWE, gcs26@yahoo.com</p>
+            </div>
         </div>
     </footer>)
 }

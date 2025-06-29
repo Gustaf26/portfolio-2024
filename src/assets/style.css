@@ -251,6 +251,7 @@ header ul.social {
     align-items: center;
     justify-content: center;
     z-index: 200;
+    /* position: relative; */
 
     &:hover {
         background-color: rgba(209, 160, 209, 0.5);
@@ -268,6 +269,20 @@ header ul.social {
         width: 220px;
         margin: 0 auto;
         left: calc(50% - 110px);
+    }
+
+    & svg {
+        color: rgb(227, 200, 227);
+        background-color: black;
+        ;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        border-radius: 50%;
+        border: 0.5px solid white;
+        top: -10px;
+        right: calc(50% - 10px);
+        z-index: 100;
     }
 
     & a {
@@ -811,7 +826,7 @@ section {
             /* margin: 15px; */
             position: relative;
             overflow: hidden;
-            box-shadow: 8px 8px 0px rgb(228, 223, 223);
+            /* box-shadow: 8px 8px 0px rgb(228, 223, 223); */
 
             & h3 {
                 position: absolute;
@@ -829,11 +844,9 @@ section {
 
             &.not-featured {
                 & a {
-
                     height: 100%;
                     box-shadow: none;
                     border: none;
-
                 }
 
                 & #more-info-button {
@@ -847,6 +860,7 @@ section {
                     justify-content: center;
                     align-items: center;
                     border-radius: 5px;
+                    display: none;
 
                     &:hover {
                         background-color: rgba(0, 0, 0, 0);
@@ -888,9 +902,9 @@ section {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 10px;
-                background-color: rgba(0, 0, 0, 0.5);
-                border: 0.5px solid rgb(241, 211, 241);
+                /* padding: 10px; */
+                background-color: rgba(0, 0, 0, 0.8);
+                /* border: 0.5px solid rgb(241, 211, 241); */
                 border-radius: 5px;
             }
 

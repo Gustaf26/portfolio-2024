@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import myProfile from '../assets/images/my-profile.jpg'
 
 
-export default function Contact() {
+export default function Hero() {
 
     const [msg, setMsg] = useState('')
 
