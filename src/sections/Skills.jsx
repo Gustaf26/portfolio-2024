@@ -70,9 +70,11 @@ function Skills() {
 
     const skills = [{ name: "Javascript", level: levels[0], ref: skillRefs[0] },
     { name: "Python", level: levels[1], ref: skillRefs[1] },
-    { name: "HTML/CSS", level: levels[2], ref: skillRefs[2] },
-    { name: "SQL/NoSQL", level: levels[3], ref: skillRefs[3] },
-    { name: "React", level: levels[4], ref: skillRefs[4] }]
+    { name: "HTML / CSS", level: levels[2], ref: skillRefs[2] },
+    { name: "SQL / SQLite", level: levels[3], ref: skillRefs[3] },
+    { name: "NoSQL / Firebase / Mongo", level: levels[3], ref: skillRefs[3] },
+    { name: "React", level: levels[4], ref: skillRefs[4] },
+    { name: "Django", level: levels[4], ref: skillRefs[4] }]
 
 
 
