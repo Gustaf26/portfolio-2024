@@ -7,7 +7,7 @@ let projects = [
     {
         image: ecommerce,
         title: 'E-commerce - CMS for retailers who want a flexible solution',
-        description: 'Being this my examination project, it never saw the light of being actually used by retailers.',
+        description: 'Being this my examination project, it never saw the light of being actually used by retailers. I developed it further with CMS functionality and more suited styles for a clothes brand',
         more_link: { href: "https://e-commerce.catala-sverdrup.se", "text": 'Find out more' }
     },
     {
