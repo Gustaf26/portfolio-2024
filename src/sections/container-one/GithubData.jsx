@@ -56,13 +56,13 @@ const GithubData = () => {
             <h6>Public Repos</h6>
             <span className="loader repos-loader"><span>{repos && repos}</span></span></div>
         <div className="loader-container">
-            <h6>Commits Here</h6>
+            <h6>Contributions</h6>
             <span className="loader"><span>{commits && commits}</span></span></div>
         <div className="loader-container">
             <h6>Available</h6>
             <span className="loader not-numbers">Now</span></div>
         <div className="loader-container">
-            <h6>Latest Update</h6>
+            <h6>Updated</h6>
             <span className="loader not-numbers">{lastUpdated && lastUpdated.slice(4, 11)}</span></div>
     </div>)
 }
