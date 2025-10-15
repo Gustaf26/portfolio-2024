@@ -472,7 +472,7 @@ img {
 
     /* SPINNERS GITHUB */
 
-    #git-data-supra-container {
+    #activity-container {
         width: 45%;
         display: flex;
         flex-direction: column;
@@ -485,19 +485,17 @@ img {
         }
 
         @media screen and (max-width:600px) {
-            width: 100%;
             padding: 0px;
 
             & #github-data-container {
                 gap: 20px;
-                /* min-width: 280px; */
-                margin: 20px auto;
+                min-width: 280px;
             }
 
-            & .loader-container {
+            /* & .loader-container {
                 max-width: 150px;
                 justify-self: center;
-            }
+            } */
         }
 
         @media screen and (min-width:700px) and (max-width:1000px) {
@@ -508,14 +506,28 @@ img {
     }
 
     #github-data-container {
+
+        container-type: inline-size;
+        container-name: github-data-container;
         display: grid;
+        text-align: center;
+        justify-self: center;
+        align-self: center;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         gap: 20px;
-        margin-top: 20px;
+        margin-top: 30px;
 
         @media screen and (min-width:700px) and (max-width:1000px) {
-            /* width: 100%; */
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        @media screen and (min-width:600px) and (max-width:700px) {
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -527,9 +539,7 @@ img {
         }
 
         & .loader-container {
-            width: 100%;
-            width: 200px;
-            height: 200px;
+            justify-self: center;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -560,16 +570,6 @@ img {
                 }
             }
 
-            @media screen and (min-width:400px) and (max-width:600px) {
-
-                width: 150px;
-                height: 150px;
-            }
-
-            @media screen and (max-width:400px) {
-                width: 120px;
-                height: 120px;
-            }
 
             &:hover {
                 transform: scale(1.05) !important;
@@ -578,9 +578,7 @@ img {
             }
 
             & .loader {
-                width: 120px;
-                height: 120px;
-                line-height: 120px;
+                /* line-height: 120px; */
                 text-align: center;
                 font-size: 1.25em;
                 color: rgb(107, 142, 169);
@@ -644,7 +642,57 @@ img {
         }
     }
 
+
+    /* @container github-data-container (min-width: 600px) and (max-width:900px) {
+        gap: 5px;
+    }
+
+    @container github-data-container (min-width: 901px) {
+        gap: 5px;
+    } */
+
 }
+
+@container github-data-container (width <=401px) {
+    .loader-container {
+        width: 120px;
+        height: 120px;
+
+        & .loader {
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+        }
+    }
+}
+
+@container github-data-container (min-width: 401px) and (max-width:500px) {
+    .loader-container {
+        width: 180px;
+        height: 180px;
+
+        & .loader {
+            width: 140px;
+            height: 140px;
+            line-height: 140px;
+        }
+    }
+}
+
+@container github-data-container (min-width: 500px) and (max-width:900px) {
+    .loader-container {
+        width: 150px;
+        height: 150px;
+
+        & .loader {
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+        }
+    }
+}
+
+
 
 .about {
 
@@ -1593,10 +1641,13 @@ footer {
         & #git-and-skills-section,
         #experience & #git-and-skills-section {
 
-            & #git-data-supra-container {
+            & #activity-container {
                 padding-top: 0px;
 
                 & #github-data-container {
+                    margin-top: 30px;
+                    width: 100%;
+                    gap: 40px;
                     padding: 0px 20px 20px 20px;
                 }
             }

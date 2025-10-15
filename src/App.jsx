@@ -84,7 +84,7 @@ const App = () => {
               <Skills />
             </div>
             <hr />
-            <div id="git-data-supra-container">
+            <div id="activity-container">
               <h2>Activity</h2>
               <GithubContextProv>
                 <Activity />
