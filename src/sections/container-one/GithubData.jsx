@@ -9,7 +9,7 @@ const GithubData = () => {
     const { gitUserData, gitRepoEvents } = useContext(GithubContext)
     const [commits, setCommits] = useState(0)
     const [repos, setRepos] = useState(0)
-    const [lastUpdated, setLastUpdated] = useState('')
+    const [lastUpdated, setLastUpdated] = useState(gitUserData?.data?.updated_at || new Date().toDateString('yyy-mm-dd'))
 
     useEffect(() => {
 
