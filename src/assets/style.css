@@ -93,7 +93,6 @@ header .profile-container {
     & h1 {
         & span {
             color: rgb(236, 151, 236);
-            font-weight: bolder;
         }
 
     }

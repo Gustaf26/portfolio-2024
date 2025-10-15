@@ -1,7 +1,7 @@
 
 
 import { useContext, useEffect, useState } from 'react'
-import StyleContext from '../../contexts/StyleContext';
+import StyleContext from '../contexts/StyleContext';
 
 
 

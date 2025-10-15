@@ -1,7 +1,7 @@
 
 import { useState, useContext, useEffect } from 'react'
 
-import { GithubContext } from '../../contexts/GithubContext.jsx'
+import { GithubContext } from '../contexts/GithubContext.jsx'
 
 
 const GithubData = () => {

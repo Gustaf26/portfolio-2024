@@ -1,20 +1,20 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-import About from './sections/container-one/About';
-import Latest from './sections/container-one/Latest';
-import Experience from './sections/container-one/Experience';
+import About from './sections/About.jsx';
+import Latest from './sections/Latest.jsx';
+import Experience from './sections/Experience.jsx';
 import Header from './components/Header';
 import Skills from './sections/Skills.jsx';
-import Testimonials from './sections/container-one/Testimonials.jsx';
-import Education from './sections/container-one/Education'
+import Testimonials from './sections/Testimonials.jsx';
+import Education from './sections/Education.jsx'
 import Footer from './components/Footer';
 import Hero from './sections/Hero.jsx'
 
 import { GithubContextProv } from './contexts/GithubContext.jsx';
 
 import mail from './assets/images/email.png'
-import GithubData from './sections/container-one/GithubData.jsx';
+import Activity from './sections/Activity.jsx';
 
 import StyleContext from './contexts/StyleContext';
 
@@ -87,7 +87,7 @@ const App = () => {
             <div id="git-data-supra-container">
               <h2>Activity</h2>
               <GithubContextProv>
-                <GithubData />
+                <Activity />
               </GithubContextProv>
             </div>
           </div>
