@@ -24,7 +24,7 @@ let projects = [
         title: "Speaking Up 2 You - Landing page for a language school",
         description: "This school driven by an aqcuaintance needed another functionality and some more versatility in order to change contents and actual information. So the work was based on re-writing the code into a React SPA and keep it simple, parting of the original design.",
         more_link: {
-            "href": "https://speakingup2you.com",
+            "href": "https://spaking.catala-sverdrup.se",
             "text": "Find out more"
         }
     },

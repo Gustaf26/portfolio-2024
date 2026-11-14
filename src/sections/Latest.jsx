@@ -1,6 +1,6 @@
 import { useState, useContext, useRef, useEffect } from 'react'
-import projects from '../../data/data.js'
-import StyleContext from '../../contexts/StyleContext.jsx'
+import projects from '../data/data.js'
+import StyleContext from '../contexts/StyleContext.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotate } from '@fortawesome/free-solid-svg-icons'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
